@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Android/android-sdk-windows/add-ons/addon_google_apis_google_inc_9/libs/maps.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Android/android-sdk-windows/platforms/android-9/android.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GeoCamMemo"/>
+	<classpathentry kind="lib" path="C:/Code/geocamMemoForAndroid/Test/libs/robolectric-0.9.8-jar-with-dependencies.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
