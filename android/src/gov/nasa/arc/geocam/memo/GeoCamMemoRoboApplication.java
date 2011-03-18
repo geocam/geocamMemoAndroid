@@ -5,7 +5,13 @@ import com.google.inject.Module;
 import java.util.List;
 
 public class GeoCamMemoRoboApplication extends RoboApplication{
-    protected void addApplicationModules(List<Module> modules) {
+    private Module module = new GeoCamMemoModule();
+
+	protected void addApplicationModules(List<Module> modules) {
         modules.add(new GeoCamMemoModule());
+    }
+    
+    public void setModule(Module module) {
+        this.module = module;
     }
 }
