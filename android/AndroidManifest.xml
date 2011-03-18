@@ -3,8 +3,9 @@
       package="gov.nasa.arc.geocam.memo"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
-        <activity android:name=".GeoCamMemo"
+    <application android:icon="@drawable/icon" android:label="@string/app_name" 
+                 android:name=".GeoCamMemoRoboApplication" android:debuggable="true">
+        <activity android:name=".activity.GeoCamMemo"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
