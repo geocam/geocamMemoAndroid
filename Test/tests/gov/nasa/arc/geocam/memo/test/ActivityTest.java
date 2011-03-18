@@ -2,9 +2,9 @@ package gov.nasa.arc.geocam.memo.test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import gov.nasa.arc.geocam.memo.GeoCamMemo;
 import gov.nasa.arc.geocam.memo.R;
-
+import gov.nasa.arc.geocam.memo.activity.GeoCamMemo;
+import roboguice.activity.RoboActivity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
