@@ -4,13 +4,14 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.activity.GeoCamMemo;
+import gov.nasa.arc.geocam.memo.test.injected.InjectedTestRunner;
 import roboguice.activity.RoboActivity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 
-@RunWith(RobolectricTestRunner.class)
+@RunWith(InjectedTestRunner.class)
 public class ActivityTest {
 	@Test
     public void shouldHaveHappySmiles() throws Exception {
