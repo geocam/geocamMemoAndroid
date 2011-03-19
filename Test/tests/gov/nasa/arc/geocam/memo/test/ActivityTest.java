@@ -2,26 +2,19 @@ package gov.nasa.arc.geocam.memo.test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import gov.nasa.arc.geocam.memo.R;
+import gov.nasa.arc.geocam.memo.activity.GeoCamMemo;
+import gov.nasa.arc.geocam.memo.test.injected.FakeDjangoMemoImplementation;
+import gov.nasa.arc.geocam.memo.test.injected.InjectedTestRunner;
 
 import java.util.List;
 
-import gov.nasa.arc.geocam.memo.R;
-import gov.nasa.arc.geocam.memo.activity.GeoCamMemo;
-import gov.nasa.arc.geocam.memo.service.DjangoMemoImplementation;
-import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
-import gov.nasa.arc.geocam.memo.test.injected.FakeDjangoMemoImplementation;
-import gov.nasa.arc.geocam.memo.test.injected.InjectedTestRunner;
-import roboguice.activity.RoboActivity;
-import roboguice.config.AbstractAndroidModule;
-
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.widget.ListView;
 
 import com.google.inject.Inject;
-import com.xtremelabs.robolectric.RobolectricTestRunner;
 
 @RunWith(InjectedTestRunner.class)
 public class ActivityTest{	
@@ -38,12 +31,10 @@ public class ActivityTest{
 	public void shouldDisplayMemos() throws Exception {
 		//arrange
 		activity.onCreate(null);
-		//FakeDjangoMemoImplementation fakeDjangoMemo = new FakeDjangoMemoImplementation();
-        List<String>fakeMemoList = fakeDjangoMemo.getMemos();
-        activity.setContentView(R.layout.main);
+		List<String>fakeMemoList = fakeDjangoMemo.getMemos();
 	    
         //act
-        ListView geoCamListView = (ListView)new GeoCamMemo().findViewById(R.id.MemoListView);       
+        ListView geoCamListView = (ListView)activity.findViewById(R.id.MemoListView);
         
 		//assert
         assertThat(geoCamListView.getChildCount(), equalTo(fakeMemoList.size()));
