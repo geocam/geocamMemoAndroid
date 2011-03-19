@@ -1,11 +1,11 @@
-package gov.nasa.arc.geocam.memo.test;
+package gov.nasa.arc.geocam.memo.activity.test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import gov.nasa.arc.geocam.memo.R;
-import gov.nasa.arc.geocam.memo.activity.GeoCamMemo;
-import gov.nasa.arc.geocam.memo.test.injected.FakeDjangoMemoImplementation;
-import gov.nasa.arc.geocam.memo.test.injected.InjectedTestRunner;
+import gov.nasa.arc.geocam.memo.activity.GeoCamMemoActivity;
+import gov.nasa.arc.geocam.memo.injected.FakeDjangoMemoImplementation;
+import gov.nasa.arc.geocam.memo.injected.InjectedTestRunner;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ import android.widget.ListView;
 import com.google.inject.Inject;
 
 @RunWith(InjectedTestRunner.class)
-public class ActivityTest{	
-	@Inject GeoCamMemo activity;
+public class GeoCamMemoActivityTest{	
+	@Inject GeoCamMemoActivity activity;
 	@Inject FakeDjangoMemoImplementation fakeDjangoMemo;
 	
 	@Test
     public void shouldHaveHappySmiles() throws Exception {
-        String hello = new GeoCamMemo().getResources().getString(R.string.hello);
+        String hello = new GeoCamMemoActivity().getResources().getString(R.string.hello);
         assertThat(hello, equalTo("Hello World, GeoCamMemo!"));                
     }
 	

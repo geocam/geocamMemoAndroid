@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.google.inject.Inject;
 
-public class GeoCamMemo extends RoboActivity {
+public class GeoCamMemoActivity extends RoboActivity {
 	
 	@Inject DjangoMemoInterface djangoMemo;
 	@InjectView(R.id.MemoListView) ListView memoListView;

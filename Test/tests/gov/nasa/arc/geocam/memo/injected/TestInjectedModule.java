@@ -1,4 +1,4 @@
-package gov.nasa.arc.geocam.memo.test.injected;
+package gov.nasa.arc.geocam.memo.injected;
 
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 import roboguice.config.AbstractAndroidModule;
