@@ -10,7 +10,6 @@ public class TestInjectedModule extends AbstractAndroidModule {
 
 	@Override
 	protected void configure() {
-		bind(Counter.class).in(Scopes.SINGLETON);
 		bind(DjangoMemoInterface.class).to(FakeDjangoMemoImplementation.class);
 	}	
 }

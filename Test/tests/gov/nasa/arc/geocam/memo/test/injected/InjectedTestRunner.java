@@ -16,7 +16,8 @@ public class InjectedTestRunner extends RobolectricTestRunner {
 		super(testClass);
 	}
 
-    @Override protected Application createApplication() {
+    @Override 
+    protected Application createApplication() {
         GeoCamMemoRoboApplication application =
         	(GeoCamMemoRoboApplication)super.createApplication();
         
@@ -24,7 +25,8 @@ public class InjectedTestRunner extends RobolectricTestRunner {
         return application;
     }
 	
-	@Override public void prepareTest(Object test){
+	@Override 
+	public void prepareTest(Object test){
 		 GeoCamMemoRoboApplication application =
 			 (GeoCamMemoRoboApplication)Robolectric.application;
 		 

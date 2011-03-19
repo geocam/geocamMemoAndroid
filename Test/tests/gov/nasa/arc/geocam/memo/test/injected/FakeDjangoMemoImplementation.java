@@ -7,7 +7,6 @@ import com.google.inject.Singleton;
 
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 
-@Singleton
 public class FakeDjangoMemoImplementation implements DjangoMemoInterface{
 
 	@Override
