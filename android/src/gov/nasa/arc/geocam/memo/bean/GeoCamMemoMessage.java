@@ -4,18 +4,25 @@ import java.util.Date;
 
 public class GeoCamMemoMessage {
 
-	private int userId;
-	private String authorName;
-	private String content;
-	private Date content_timestamp;
-	private float latitude;
-	private float longitude;
-	private int accuracy;
+	private int 		messageId;
+	private Integer  	userId;
+	private String 		authorName;
+	private String 		content;
+	private Date 		contentTimestamp;
+	private Double 		latitude;
+	private Double 		longitude;
+	private Integer 	accuracy;
 	
+	public int getMessageId() {
+		return messageId;
+	}
+	public void setMessageId(int messageId) {
+		this.messageId = messageId;
+	}
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 	public String getAuthorName() {
@@ -30,28 +37,62 @@ public class GeoCamMemoMessage {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getContent_timestamp() {
-		return content_timestamp;
+	public Date getContentTimestamp() {
+		return contentTimestamp;
 	}
-	public void setContent_timestamp(Date content_timestamp) {
-		this.content_timestamp = content_timestamp;
+	public void setContentTimestamp(Date contentTimestamp) {
+		this.contentTimestamp = contentTimestamp;
 	}
-	public float getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-	public float getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public int getAccuracy() {
+	public Integer getAccuracy() {
 		return accuracy;
 	}
 	public void setAccuracy(int accuracy) {
 		this.accuracy = accuracy;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		GeoCamMemoMessage other = (GeoCamMemoMessage)o;
+		
+		return 
+		this.messageId == other.messageId && 	
+		equalOrBothNull(userId, other.userId) &&
+		equalOrBothNull(authorName, other.authorName) &&
+		equalOrBothNull(content, other.content) &&
+		equalOrBothNull(contentTimestamp, other.contentTimestamp) &&
+		equalOrBothNull(latitude, other.latitude) &&
+		equalOrBothNull(longitude, other.longitude) &&
+		equalOrBothNull(accuracy, other.accuracy);
+	}
+	
+	// TODO: Revisit this if we need other helper methods. Maybe move to global helper function?
+	// Jakarta Commons library may provide some additional methods that would be useful
+	public static boolean equalOrBothNull(Object a, Object b)
+	{
+		if(a != null && b != null)
+		{
+			return a.equals(b);
+		}
+		else if(a == null && b == null)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 }
