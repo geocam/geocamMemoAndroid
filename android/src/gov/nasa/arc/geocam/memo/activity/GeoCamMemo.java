@@ -52,7 +52,5 @@ public class GeoCamMemo extends RoboActivity {
         		return row;
         	}
         });
-        
-        String x = "";
     }
 }
