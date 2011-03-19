@@ -6,6 +6,7 @@ import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 import java.util.List;
 
 import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import com.google.inject.Inject;
 public class GeoCamMemo extends RoboActivity {
 	
 	@Inject DjangoMemoInterface djangoMemo;
+	@InjectView(R.id.MemoListView) ListView memoListView;
+	
 	private LayoutInflater mInflater;
 	
     /** Called when the activity is first created. */
@@ -29,7 +32,6 @@ public class GeoCamMemo extends RoboActivity {
         setContentView(R.layout.main);
                       
         List<String>memoList = djangoMemo.getMemos();
-        ListView memoListView = (ListView)findViewById(R.id.MemoListView);
         
         mInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         
