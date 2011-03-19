@@ -3,9 +3,3 @@ gen
 bin
 .DS_Store
 android/tmp
-Test/.classpath
-Test/.project
-Test/.settings
-android/.classpath
-android/.project
-android/.settings

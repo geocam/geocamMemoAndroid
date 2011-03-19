@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GeoCamMemoForAndroid"/>
+	<classpathentry kind="lib" path="/GeoCamMemoForAndroid/lib/guice-2.0-no_aop.jar"/>
+	<classpathentry kind="lib" path="/GeoCamMemoForAndroid/lib/roboguice-1.1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="/GeoCamMemoForAndroid/lib/roboguice-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/android.jar"/>
+	<classpathentry kind="lib" path="lib/maps.jar"/>
+	<classpathentry kind="lib" path="lib/robolectric-1.0-RC1-jar-with-dependencies.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
