@@ -1,11 +1,9 @@
 package gov.nasa.arc.geocam.memo.test.injected;
 
+import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.inject.Singleton;
-
-import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 
 public class FakeDjangoMemoImplementation implements DjangoMemoInterface{
 

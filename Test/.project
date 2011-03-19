@@ -3,6 +3,7 @@
 	<name>GeocamMemoForAndroidTest</name>
 	<comment></comment>
 	<projects>
+		<project>GeoCamMemoForAndroid</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
