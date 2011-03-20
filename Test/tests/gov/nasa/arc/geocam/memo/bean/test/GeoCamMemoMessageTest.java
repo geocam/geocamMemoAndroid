@@ -1,11 +1,12 @@
 package gov.nasa.arc.geocam.memo.bean.test;
 
-import java.text.SimpleDateFormat;
-
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 
+import java.text.SimpleDateFormat;
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 public class GeoCamMemoMessageTest {
@@ -17,7 +18,7 @@ public class GeoCamMemoMessageTest {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd hh:mm:ss");
 				
 		GeoCamMemoMessage message1 = new GeoCamMemoMessage();
-		message1.setAuthorName("Rufus Hornsby");
+		message1.setAuthorUsername("Rufus Hornsby");
 		message1.setLongitude(-122.057954);
 		message1.setContent("Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.");
 		message1.setContentTimestamp(sdf.parse("03/13 10:48:44"));
@@ -26,7 +27,7 @@ public class GeoCamMemoMessageTest {
 		message1.setAccuracy(60);
 
 		GeoCamMemoMessage message2 = new GeoCamMemoMessage();
-		message2.setAuthorName("Rufus Hornsby");
+		message2.setAuthorUsername("Rufus Hornsby");
 		message2.setLongitude(-122.057954);
 		message2.setContent("Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.");
 		message2.setContentTimestamp(sdf.parse("03/13 10:48:44"));
@@ -44,7 +45,7 @@ public class GeoCamMemoMessageTest {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd hh:mm:ss");
 				
 		GeoCamMemoMessage message1 = new GeoCamMemoMessage();
-		message1.setAuthorName("Rufus Hornsby");
+		message1.setAuthorUsername("Rufus Hornsby");
 		message1.setLongitude(-122.057954);
 		message1.setContent("Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.");
 		message1.setContentTimestamp(sdf.parse("03/13 10:48:44"));
@@ -53,7 +54,7 @@ public class GeoCamMemoMessageTest {
 		message1.setAccuracy(60);
 
 		GeoCamMemoMessage message2 = new GeoCamMemoMessage();
-		message2.setAuthorName("Rufus Hornsby");
+		message2.setAuthorUsername("Rufus Hornsby");
 		message2.setLongitude(-122.057954);
 		message2.setContent("Structural guy not allowing access to building. Fire is too out of control. Fire squad alerted."); // change here!
 		message2.setContentTimestamp(sdf.parse("03/13 10:48:44"));

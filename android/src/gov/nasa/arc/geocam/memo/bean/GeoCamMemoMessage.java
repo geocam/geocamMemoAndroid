@@ -6,7 +6,7 @@ public class GeoCamMemoMessage {
 
 	private int 		messageId;
 	private Integer  	userId;
-	private String 		authorName;
+	private String 		authorUsername;
 	private String 		content;
 	private Date 		contentTimestamp;
 	private Double 		latitude;
@@ -25,11 +25,11 @@ public class GeoCamMemoMessage {
 	public Integer getUserId() {
 		return userId;
 	}
-	public String getAuthorName() {
-		return authorName;
+	public String getAuthorUsername() {
+		return authorUsername;
 	}
-	public void setAuthorName(String authorName) {
-		this.authorName = authorName;
+	public void setAuthorUsername(String authorUsername) {
+		this.authorUsername = authorUsername;
 	}
 	public String getContent() {
 		return content;
@@ -69,7 +69,7 @@ public class GeoCamMemoMessage {
 		return 
 		this.messageId == other.messageId && 	
 		equalOrBothNull(userId, other.userId) &&
-		equalOrBothNull(authorName, other.authorName) &&
+		equalOrBothNull(authorUsername, other.authorUsername) &&
 		equalOrBothNull(content, other.content) &&
 		equalOrBothNull(contentTimestamp, other.contentTimestamp) &&
 		equalOrBothNull(latitude, other.latitude) &&
