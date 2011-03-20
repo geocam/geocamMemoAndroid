@@ -1,7 +1,6 @@
 package gov.nasa.arc.geocam.memo.service.test;
 
 import static org.junit.Assert.assertNotNull;
-import gov.nasa.arc.geocam.memo.activity.GeoCamMemoActivity;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.injected.InjectedTestRunner;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoImplementation;
@@ -16,16 +15,12 @@ import com.google.inject.Inject;
 @RunWith(InjectedTestRunner.class)
 public class DjangoMemoImplementationTest {
 
-	@Inject GeoCamMemoActivity activity;
+	@Inject DjangoMemoImplementation memoImpl;
 	
 	@Test
 	public void ensureGetMemosReturnsMemos() {
-		// arrange
-		activity.onCreate(null);
-		DjangoMemoImplementation impl = new DjangoMemoImplementation();
-		
 		// act
-		List<GeoCamMemoMessage> memos = impl.getMemos();
+		List<GeoCamMemoMessage> memos = memoImpl.getMemos();
 		
 		// assert
 		assertNotNull(memos);
