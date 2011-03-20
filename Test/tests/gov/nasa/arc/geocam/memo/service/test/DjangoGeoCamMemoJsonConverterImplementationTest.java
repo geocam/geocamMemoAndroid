@@ -1,8 +1,9 @@
 package gov.nasa.arc.geocam.memo.service.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
-import gov.nasa.arc.geocam.memo.service.GsonJsonConverterImplementation;
+import gov.nasa.arc.geocam.memo.service.DjangoGeoCamMemoJsonConverterImplementation;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 import org.junit.Test;
 
 
-public class GsonJsonConverterImplementationTest {
+public class DjangoGeoCamMemoJsonConverterImplementationTest {
 	
 	@Test
 	public void ensureProperParsingOfMessageListFeed() throws Exception
@@ -19,8 +20,8 @@ public class GsonJsonConverterImplementationTest {
 		String jsonString = 
 			"[{\"authorUsername\": \"rhornsby\", \"longitude\": null, \"content\": \"Crap, my geolocation service crashed and I am not providing geoloc with this message. This message should be the latest to make sure we gracefully fall back to the next available geolocated message.\", \"contentTimestamp\": \"03/13/11 11:23:21\",\"latitude\": null, \"messageId\": 19, \"accuracy\": null}, {\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0}]";
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
-		GsonJsonConverterImplementation<GeoCamMemoMessage> converter =
-			new GsonJsonConverterImplementation<GeoCamMemoMessage>();
+		DjangoGeoCamMemoJsonConverterImplementation converter =
+			new DjangoGeoCamMemoJsonConverterImplementation();
 		
 		GeoCamMemoMessage message1 = new GeoCamMemoMessage();
 		message1.setAuthorUsername("rhornsby");
@@ -42,37 +43,37 @@ public class GsonJsonConverterImplementationTest {
 		
 		// act
 		List<GeoCamMemoMessage> resolvedList =
-			converter.deserializeGeoCamMemoMessageList(jsonString);
+			converter.deserializeList(jsonString);
 		
 		// assert
 		assertTrue(resolvedList.contains(message1));
 		assertTrue(resolvedList.contains(message2));
 	}
 	
-//	@Test
-//	public void funTimes() throws Exception {
-//		// arrange
-//		GsonJsonConverterImplementation<GeoCamMemoMessage> converter =
-//			new GsonJsonConverterImplementation<GeoCamMemoMessage>();
-//		
-//		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
-//		
-//		String jsonString = 
-//			"{\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0}";
-//		
-//		GeoCamMemoMessage message = new GeoCamMemoMessage();
-//		message.setAuthorUsername("rhornsby");
-//		message.setLongitude(-122.057954);
-//		message.setContent("Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.");
-//		message.setContentTimestamp(sdf.parse("03/13/11 10:48:44"));
-//		message.setLatitude(37.411629);
-//		message.setMessageId(15);
-//		message.setAccuracy(60);
-//		
-//		// act
-//		GeoCamMemoMessage convertedMessage = converter.deserializeGeoCamMemoMessageList(jsonString);
-//		
-//		// arrange
-//		assertEquals(message, convertedMessage);
-//	}
+	@Test
+	public void ensureSingularDeserializationWorks() throws Exception {
+		// arrange
+		DjangoGeoCamMemoJsonConverterImplementation converter =
+			new DjangoGeoCamMemoJsonConverterImplementation();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
+		
+		String jsonString = 
+			"{\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0}";
+		
+		GeoCamMemoMessage message = new GeoCamMemoMessage();
+		message.setAuthorUsername("rhornsby");
+		message.setLongitude(-122.057954);
+		message.setContent("Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.");
+		message.setContentTimestamp(sdf.parse("03/13/11 10:48:44"));
+		message.setLatitude(37.411629);
+		message.setMessageId(15);
+		message.setAccuracy(60);
+		
+		// act
+		GeoCamMemoMessage convertedMessage = converter.deserialize(jsonString);
+		
+		// arrange
+		assertEquals(message, convertedMessage);
+	}
 }

@@ -1,17 +1,21 @@
 package gov.nasa.arc.geocam.memo.service;
 
 
-import java.util.ArrayList;
+import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
+
 import java.util.List;
+
+import com.google.inject.Inject;
 
 public class DjangoMemoImplementation implements DjangoMemoInterface{
 
+	@Inject DjangoGeoCamMemoJsonConverterInterface jsonConverter;
+	
 	@Override
-	public List<String> getMemos() {
-		// TODO Auto-generated method stub
-		List<String>testStringList = new ArrayList<String>();
-		testStringList.add("string1");
-		testStringList.add("string2");
-		return testStringList;
+	public List<GeoCamMemoMessage> getMemos() {
+		String jsonString = 
+		"[{\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0}]";
+		
+		return jsonConverter.deserializeList(jsonString);
 	}
 }

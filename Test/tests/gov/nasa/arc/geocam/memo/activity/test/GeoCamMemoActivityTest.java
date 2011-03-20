@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.activity.GeoCamMemoActivity;
+import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.injected.FakeDjangoMemoImplementation;
 import gov.nasa.arc.geocam.memo.injected.InjectedTestRunner;
 
@@ -31,7 +32,7 @@ public class GeoCamMemoActivityTest{
 	public void shouldDisplayMemos() throws Exception {
 		//arrange
 		activity.onCreate(null);
-		List<String>fakeMemoList = fakeDjangoMemo.getMemos();
+		List<GeoCamMemoMessage>fakeMemoList = fakeDjangoMemo.getMemos();
 	    
         //act
         ListView geoCamListView = (ListView)activity.findViewById(R.id.MemoListView);
