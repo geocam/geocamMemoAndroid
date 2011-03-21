@@ -12,14 +12,12 @@ import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class DjangoMemoImplementationTest extends GeoCamTestCase {
 
 	@Test
-	public void testEnsureGetMemosReturnsMemos() throws Exception {
+	public void shouldEnsureGetMemosReturnsMemos() throws Exception {
 		DjangoMemoImplementation memoImpl = new DjangoMemoImplementation();
 		
 		//let's mock the json interface...

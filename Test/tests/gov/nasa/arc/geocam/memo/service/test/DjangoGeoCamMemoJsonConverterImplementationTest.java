@@ -13,7 +13,7 @@ import org.junit.Test;
 public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestCase {
 	
 	@Test
-	public void testEnsureProperParsingOfMessageListFeed() throws Exception
+	public void ensureProperParsingOfMessageListFeed() throws Exception
 	{
 		// arrange
 		String jsonString = 
@@ -48,8 +48,9 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestC
 		assertTrue(resolvedList.contains(message1));
 		assertTrue(resolvedList.contains(message2));
 	}
+	
 	@Test
-	public void testEnsureSingularDeserializationWorks() throws Exception {
+	public void ensureSingularDeserializationWorks() throws Exception {
 		// arrange
 		DjangoMemoJsonConverterImplementation converter =
 			new DjangoMemoJsonConverterImplementation();

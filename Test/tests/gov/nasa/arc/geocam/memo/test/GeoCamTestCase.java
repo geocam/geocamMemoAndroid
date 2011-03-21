@@ -9,7 +9,6 @@ import roboguice.config.AbstractAndroidModule;
 
 @RunWith(InjectedTestRunner.class)
 public abstract class GeoCamTestCase extends TestCase {
-	public AbstractAndroidModule testCaseModule = null;
-	
-	
+	// containing class that forces use of injectedtestrunner
+	// may be able to create other commonalities between test cases
 }

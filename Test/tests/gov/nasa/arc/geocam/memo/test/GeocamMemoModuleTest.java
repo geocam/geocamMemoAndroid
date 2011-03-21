@@ -11,7 +11,7 @@ import com.google.inject.Injector;
 
 public class GeocamMemoModuleTest extends GeoCamTestCase{
 	@Test
-    public void testShouldBindDjangoMemoInterface() throws Exception
+    public void shouldBindDjangoMemoInterface() throws Exception
 	{
 		//arrange
 		Injector injector = Guice.createInjector(new GeoCamMemoModule());
@@ -20,7 +20,7 @@ public class GeocamMemoModuleTest extends GeoCamTestCase{
         injector.getProvider(DjangoMemoInterface.class);
 	}
 	@Test
-	public void testShouldBindAwesomeJsonConverterInterface() throws Exception
+	public void shouldBindAwesomeJsonConverterInterface() throws Exception
 	{
 		//arrange
 		Injector injector = Guice.createInjector(new GeoCamMemoModule());

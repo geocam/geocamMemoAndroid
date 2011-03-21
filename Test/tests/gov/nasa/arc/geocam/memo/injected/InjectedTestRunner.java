@@ -34,16 +34,6 @@ public class InjectedTestRunner extends RobolectricTestRunner {
 	     Injector injector = application.getInjector();
 	     ContextScope scope = injector.getInstance(ContextScope.class);
 	     scope.enter(application);
-	     // let's see if our GeoCamTestCase has a custom AbstractAndroidModule set
-	     try{
-	    	 GeoCamTestCase geotest = (GeoCamTestCase)test;
-	    	 if(geotest.testCaseModule != null)
-	    	 {
-	    		 application.setModule(geotest.testCaseModule);
-	    	 }
-	     } 
-	     catch (Exception e){}
-	    	 
 	     injector.injectMembers(test);
 	}
 	
