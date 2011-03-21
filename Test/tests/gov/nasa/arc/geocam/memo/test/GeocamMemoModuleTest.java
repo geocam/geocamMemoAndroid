@@ -1,7 +1,7 @@
 package gov.nasa.arc.geocam.memo.test;
 
 import gov.nasa.arc.geocam.memo.GeoCamMemoModule;
-import gov.nasa.arc.geocam.memo.service.DjangoGeoCamMemoJsonConverterInterface;
+import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class GeocamMemoModuleTest {
 		Injector injector = Guice.createInjector(new GeoCamMemoModule());
 
 		// act & assert (by non-exception)
-		injector.getProvider(DjangoGeoCamMemoJsonConverterInterface.class);
+		injector.getProvider(DjangoMemoJsonConverterInterface.class);
 	}
 	
 }

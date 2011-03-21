@@ -4,7 +4,7 @@ import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 
 import java.util.List;
 
-public interface DjangoGeoCamMemoJsonConverterInterface {
+public interface DjangoMemoJsonConverterInterface {
 	List<GeoCamMemoMessage> deserializeList(String jsonString);
 	GeoCamMemoMessage deserialize(String jsonString);
 }
