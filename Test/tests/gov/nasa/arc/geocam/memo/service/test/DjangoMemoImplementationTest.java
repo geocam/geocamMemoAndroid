@@ -1,10 +1,7 @@
 package gov.nasa.arc.geocam.memo.service.test;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
@@ -12,9 +9,11 @@ import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
-public class DjangoMemoImplementationTest{
+public class DjangoMemoImplementationTest extends TestCase {
 	
 	@Test
 	public void ensureGetMemosReturnsMemos() throws Exception {

@@ -1,15 +1,15 @@
 package gov.nasa.arc.geocam.memo.bean.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 
 import java.text.SimpleDateFormat;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
 
-public class GeoCamMemoMessageTest {
+public class GeoCamMemoMessageTest extends TestCase {
 	@Test
 	public void testEqualsMethodTrue() throws Exception
 	{

@@ -1,17 +1,17 @@
 package gov.nasa.arc.geocam.memo.service.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
 
-public class DjangoGeoCamMemoJsonConverterImplementationTest {
+public class DjangoGeoCamMemoJsonConverterImplementationTest extends TestCase {
 	
 	@Test
 	public void ensureProperParsingOfMessageListFeed() throws Exception

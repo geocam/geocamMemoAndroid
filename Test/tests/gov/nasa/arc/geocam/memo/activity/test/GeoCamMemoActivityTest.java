@@ -10,6 +10,8 @@ import gov.nasa.arc.geocam.memo.injected.InjectedTestRunner;
 
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -18,7 +20,7 @@ import android.widget.ListView;
 import com.google.inject.Inject;
 
 @RunWith(InjectedTestRunner.class)
-public class GeoCamMemoActivityTest{	
+public class GeoCamMemoActivityTest extends TestCase {	
 	@Inject GeoCamMemoActivity activity;
 	@Inject FakeDjangoMemoImplementation fakeDjangoMemo;
 	
