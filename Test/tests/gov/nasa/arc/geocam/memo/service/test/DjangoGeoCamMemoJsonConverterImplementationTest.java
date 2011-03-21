@@ -2,19 +2,18 @@ package gov.nasa.arc.geocam.memo.service.test;
 
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
+import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
 
-public class DjangoGeoCamMemoJsonConverterImplementationTest extends TestCase {
+public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestCase {
 	
 	@Test
-	public void ensureProperParsingOfMessageListFeed() throws Exception
+	public void testEnsureProperParsingOfMessageListFeed() throws Exception
 	{
 		// arrange
 		String jsonString = 
@@ -49,9 +48,8 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest extends TestCase {
 		assertTrue(resolvedList.contains(message1));
 		assertTrue(resolvedList.contains(message2));
 	}
-	
 	@Test
-	public void ensureSingularDeserializationWorks() throws Exception {
+	public void testEnsureSingularDeserializationWorks() throws Exception {
 		// arrange
 		DjangoMemoJsonConverterImplementation converter =
 			new DjangoMemoJsonConverterImplementation();

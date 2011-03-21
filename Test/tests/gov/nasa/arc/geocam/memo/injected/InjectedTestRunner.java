@@ -1,6 +1,7 @@
 package gov.nasa.arc.geocam.memo.injected;
 
 import gov.nasa.arc.geocam.memo.GeoCamMemoRoboApplication;
+import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
 import org.junit.runners.model.InitializationError;
 
@@ -33,6 +34,16 @@ public class InjectedTestRunner extends RobolectricTestRunner {
 	     Injector injector = application.getInjector();
 	     ContextScope scope = injector.getInstance(ContextScope.class);
 	     scope.enter(application);
+	     // let's see if our GeoCamTestCase has a custom AbstractAndroidModule set
+	     try{
+	    	 GeoCamTestCase geotest = (GeoCamTestCase)test;
+	    	 if(geotest.testCaseModule != null)
+	    	 {
+	    		 application.setModule(geotest.testCaseModule);
+	    	 }
+	     } 
+	     catch (Exception e){}
+	    	 
 	     injector.injectMembers(test);
 	}
 	

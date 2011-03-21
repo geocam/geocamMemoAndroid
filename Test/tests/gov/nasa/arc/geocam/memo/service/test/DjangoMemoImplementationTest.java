@@ -1,25 +1,26 @@
 package gov.nasa.arc.geocam.memo.service.test;
 
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
+import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
-
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class DjangoMemoImplementationTest extends TestCase {
-	
+public class DjangoMemoImplementationTest extends GeoCamTestCase {
+
 	@Test
-	public void ensureGetMemosReturnsMemos() throws Exception {
+	public void testEnsureGetMemosReturnsMemos() throws Exception {
 		DjangoMemoImplementation memoImpl = new DjangoMemoImplementation();
-		
-		
 		
 		//let's mock the json interface...
 		DjangoMemoJsonConverterInterface jsonConv = 
