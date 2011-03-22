@@ -34,6 +34,7 @@ public class InjectedTestRunner extends RobolectricTestRunner {
 	     Injector injector = application.getInjector();
 	     ContextScope scope = injector.getInstance(ContextScope.class);
 	     scope.enter(application);
+	     
 	     injector.injectMembers(test);
 	}
 	

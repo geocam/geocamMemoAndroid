@@ -11,11 +11,6 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 
 	@Inject DjangoMemoJsonConverterInterface jsonConverter;
 	
-	public void setJsonConverter(
-			DjangoMemoJsonConverterInterface jsonConverter) {
-		this.jsonConverter = jsonConverter;
-	}
-	
 	@Override
 	public List<GeoCamMemoMessage> getMemos() {
 		String jsonString = 

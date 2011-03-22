@@ -9,10 +9,12 @@ import gov.nasa.arc.geocam.memo.service.DjangoMemoImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
 import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
 
 public class DjangoMemoImplementationTest extends GeoCamTestCase {
 
@@ -22,13 +24,14 @@ public class DjangoMemoImplementationTest extends GeoCamTestCase {
 		
 		//let's mock the json interface...
 		DjangoMemoJsonConverterInterface jsonConv = 
-			mock(DjangoMemoJsonConverterInterface.class); // TODO: Look into @Mock and init call
+			mock(DjangoMemoJsonConverterInterface.class);
+		
 		// ...and make sure we're calling what we intend to.
 		List<GeoCamMemoMessage> expectedList = new ArrayList<GeoCamMemoMessage>();
 		when(jsonConv.deserializeList(anyString()))
 				.thenReturn(expectedList);
 
-		memoImpl.setJsonConverter(jsonConv);
+		setHiddenField(memoImpl, "jsonConverter", jsonConv);
 		
 		// act
 		List<GeoCamMemoMessage> memos = memoImpl.getMemos();
