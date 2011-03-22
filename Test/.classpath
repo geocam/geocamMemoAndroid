@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="lib/android.jar"/>
 	<classpathentry kind="lib" path="lib/maps.jar"/>
 	<classpathentry kind="lib" path="lib/robolectric-1.0-RC1-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-core-1.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

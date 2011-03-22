@@ -1,9 +1,8 @@
 package gov.nasa.arc.geocam.memo.service.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
-import gov.nasa.arc.geocam.memo.service.DjangoGeoCamMemoJsonConverterImplementation;
+import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
+import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 import org.junit.Test;
 
 
-public class DjangoGeoCamMemoJsonConverterImplementationTest {
+public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestCase {
 	
 	@Test
 	public void ensureProperParsingOfMessageListFeed() throws Exception
@@ -20,8 +19,8 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest {
 		String jsonString = 
 			"[{\"authorUsername\": \"rhornsby\", \"longitude\": null, \"content\": \"Crap, my geolocation service crashed and I am not providing geoloc with this message. This message should be the latest to make sure we gracefully fall back to the next available geolocated message.\", \"contentTimestamp\": \"03/13/11 11:23:21\",\"latitude\": null, \"messageId\": 19, \"accuracy\": null}, {\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0}]";
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
-		DjangoGeoCamMemoJsonConverterImplementation converter =
-			new DjangoGeoCamMemoJsonConverterImplementation();
+		DjangoMemoJsonConverterImplementation converter =
+			new DjangoMemoJsonConverterImplementation();
 		
 		GeoCamMemoMessage message1 = new GeoCamMemoMessage();
 		message1.setAuthorUsername("rhornsby");
@@ -53,8 +52,8 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest {
 	@Test
 	public void ensureSingularDeserializationWorks() throws Exception {
 		// arrange
-		DjangoGeoCamMemoJsonConverterImplementation converter =
-			new DjangoGeoCamMemoJsonConverterImplementation();
+		DjangoMemoJsonConverterImplementation converter =
+			new DjangoMemoJsonConverterImplementation();
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
 		

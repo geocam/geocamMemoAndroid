@@ -1,6 +1,7 @@
 package gov.nasa.arc.geocam.memo.injected;
 
 import gov.nasa.arc.geocam.memo.GeoCamMemoRoboApplication;
+import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
 import org.junit.runners.model.InitializationError;
 
@@ -33,6 +34,7 @@ public class InjectedTestRunner extends RobolectricTestRunner {
 	     Injector injector = application.getInjector();
 	     ContextScope scope = injector.getInstance(ContextScope.class);
 	     scope.enter(application);
+	     
 	     injector.injectMembers(test);
 	}
 	
