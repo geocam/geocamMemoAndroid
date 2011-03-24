@@ -8,23 +8,22 @@ import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 
 import roboguice.inject.InjectResource;
 import android.content.Context;
-import android.net.http.AndroidHttpClient;
 import android.widget.Toast;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 public class DjangoMemoImplementation implements DjangoMemoInterface{
 
 	@Inject DjangoMemoJsonConverterInterface jsonConverter;
 	@InjectResource(R.string.memo_url) String memoUrl;
 	@InjectResource(R.string.memo_messages) String memoMessagesJson;
-	@Inject protected static Provider<Context> contextProvider;
-	@Inject AndroidHttpClient httpClient;
+	@Inject protected Context context;
+	@Inject HttpClient httpClient;
 	
 	@Override
 	public List<GeoCamMemoMessage> getMemos() {
@@ -33,14 +32,14 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 		String jsonString = null;
 		
 		try {
-			HttpGet httpGet = new HttpGet("http://google.com");//memoUrl + memoMessagesJson
+			HttpGet httpGet = new HttpGet(memoUrl + memoMessagesJson);
 			HttpResponse response = httpClient.execute(httpGet);
 			
 			ByteArrayOutputStream ostream = new ByteArrayOutputStream();
 			response.getEntity().writeTo(ostream);
 	        jsonString = ostream.toString();
 		} catch (Exception e) {
-			Toast.makeText(contextProvider.get(), "Cannot access Memo Web", Toast.LENGTH_SHORT);
+			Toast.makeText(context, "Cannot access Memo Web", Toast.LENGTH_SHORT).show();			
 		}
         
 		return jsonConverter.deserializeList(jsonString);

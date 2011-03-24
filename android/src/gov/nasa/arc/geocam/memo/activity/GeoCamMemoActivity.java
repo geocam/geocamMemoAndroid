@@ -1,6 +1,7 @@
 package gov.nasa.arc.geocam.memo.activity;
 
 import gov.nasa.arc.geocam.memo.R;
+import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 
 import java.util.ArrayList;
@@ -31,8 +32,10 @@ public class GeoCamMemoActivity extends RoboActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-                      
-        List<String>memoList = new ArrayList<String>(); //djangoMemo.getMemos();
+        
+        List<GeoCamMemoMessage> memos = djangoMemo.getMemos();
+        
+        List<String>memoList = new ArrayList<String>();
         
         mInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         
