@@ -17,13 +17,14 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestC
 	{
 		// arrange
 		String jsonString = 
-			"[{\"authorUsername\": \"rhornsby\", \"longitude\": null, \"content\": \"Crap, my geolocation service crashed and I am not providing geoloc with this message. This message should be the latest to make sure we gracefully fall back to the next available geolocated message.\", \"contentTimestamp\": \"03/13/11 11:23:21\",\"latitude\": null, \"messageId\": 19, \"accuracy\": null}, {\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0}]";
+			"[{\"authorUsername\": \"rhornsby\", \"authorFullname\":\"Rufus Hornsby\", \"longitude\": null, \"content\": \"Crap, my geolocation service crashed and I am not providing geoloc with this message. This message should be the latest to make sure we gracefully fall back to the next available geolocated message.\", \"contentTimestamp\": \"03/13/11 11:23:21\",\"latitude\": null, \"messageId\": 19, \"accuracy\": null}, {\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0, \"hasGeolocation\":true}]";
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
 		DjangoMemoJsonConverterImplementation converter =
 			new DjangoMemoJsonConverterImplementation();
 		
 		GeoCamMemoMessage message1 = new GeoCamMemoMessage();
 		message1.setAuthorUsername("rhornsby");
+		message1.setAuthorFullname("Rufus Hornsby");
 		// don't set longitude
 		message1.setContent("Crap, my geolocation service crashed and I am not providing geoloc with this message. This message should be the latest to make sure we gracefully fall back to the next available geolocated message.");
 		message1.setContentTimestamp(sdf.parse("03/13/11 11:23:21"));
@@ -39,6 +40,7 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestC
 		message2.setLatitude(37.411629);
 		message2.setMessageId(15);
 		message2.setAccuracy(60);
+		message2.setHasGeolocation(true);
 		
 		// act
 		List<GeoCamMemoMessage> resolvedList =

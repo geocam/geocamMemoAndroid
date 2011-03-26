@@ -5,13 +5,15 @@ import java.util.Date;
 public class GeoCamMemoMessage {
 
 	private int 		messageId;
-	private Integer  	userId;
+	private Integer  	authorId;
 	private String 		authorUsername;
+	private String		authorFullname;
 	private String 		content;
 	private Date 		contentTimestamp;
 	private Double 		latitude;
 	private Double 		longitude;
 	private Integer 	accuracy;
+	private boolean		hasGeolocation;
 	
 	public int getMessageId() {
 		return messageId;
@@ -19,11 +21,11 @@ public class GeoCamMemoMessage {
 	public void setMessageId(int messageId) {
 		this.messageId = messageId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
 	}
-	public Integer getUserId() {
-		return userId;
+	public Integer getAuthorId() {
+		return authorId;
 	}
 	public String getAuthorUsername() {
 		return authorUsername;
@@ -33,6 +35,12 @@ public class GeoCamMemoMessage {
 	}
 	public String getContent() {
 		return content;
+	}
+	public String getAuthorFullname() {
+		return authorFullname;
+	}
+	public void setAuthorFullname(String authorFullname) {
+		this.authorFullname = authorFullname;
 	}
 	public void setContent(String content) {
 		this.content = content;
@@ -61,6 +69,14 @@ public class GeoCamMemoMessage {
 	public void setAccuracy(int accuracy) {
 		this.accuracy = accuracy;
 	}
+	public boolean hasGeolocation() {
+		return hasGeolocation;
+	}
+	public void setHasGeolocation(boolean hasGeolocation) {
+		this.hasGeolocation = hasGeolocation;
+	}
+
+
 	
 	@Override
 	public boolean equals(Object o) {
@@ -68,13 +84,15 @@ public class GeoCamMemoMessage {
 		
 		return 
 		this.messageId == other.messageId && 	
-		equalOrBothNull(userId, other.userId) &&
+		equalOrBothNull(authorId, other.authorId) &&
 		equalOrBothNull(authorUsername, other.authorUsername) &&
+		equalOrBothNull(authorFullname, other.authorFullname) &&
 		equalOrBothNull(content, other.content) &&
 		equalOrBothNull(contentTimestamp, other.contentTimestamp) &&
 		equalOrBothNull(latitude, other.latitude) &&
 		equalOrBothNull(longitude, other.longitude) &&
-		equalOrBothNull(accuracy, other.accuracy);
+		equalOrBothNull(accuracy, other.accuracy) &&
+		this.hasGeolocation == other.hasGeolocation;
 	}
 	
 	// TODO: Revisit this if we need other helper methods. Maybe move to global helper function?
