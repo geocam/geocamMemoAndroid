@@ -16,13 +16,14 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 public class DjangoMemoImplementation implements DjangoMemoInterface{
 
 	@Inject DjangoMemoJsonConverterInterface jsonConverter;
 	@InjectResource(R.string.memo_url) String memoUrl;
 	@InjectResource(R.string.memo_messages) String memoMessagesJson;
-	@Inject protected Context context;
+	@Inject protected static Provider<Context> contextProvider;
 	@Inject HttpClient httpClient;
 	
 	@Override
@@ -39,7 +40,7 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 			response.getEntity().writeTo(ostream);
 	        jsonString = ostream.toString();
 		} catch (Exception e) {
-			Toast.makeText(context, "Cannot access Memo Web", Toast.LENGTH_SHORT).show();			
+			Toast.makeText(contextProvider.get(), "Cannot access Memo Web", Toast.LENGTH_SHORT).show();			
 		}
         
 		return jsonConverter.deserializeList(jsonString);

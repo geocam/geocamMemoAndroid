@@ -1,12 +1,13 @@
 package gov.nasa.arc.geocam.memo.activity;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import android.content.Context;
-import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +15,28 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.inject.Inject;
+import com.google.inject.Provider;
+
 public class GeoCamMemoMessageArrayAdapter extends ArrayAdapter<GeoCamMemoMessage> {
     
-	public GeoCamMemoMessageArrayAdapter(Context context,
-			int textViewResourceId, GeoCamMemoMessage[] objects) {
-		super(context, textViewResourceId, objects);
-		mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	@Inject protected static Provider<Context> contextProvider;
+	@Inject LayoutInflater mInflater;
+
+	
+	public GeoCamMemoMessageArrayAdapter() {
+		super(contextProvider.get(), R.layout.list_item);
+	}
+	
+	public void setMemos(List<GeoCamMemoMessage> memos)
+	{
+		clear();
+		for(GeoCamMemoMessage m:memos)
+		{
+			add(m);
+		}
 	}
 
-	private LayoutInflater mInflater;
-	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row;

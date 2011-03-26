@@ -25,8 +25,7 @@ public class GeoCamMemoActivity extends RoboActivity {
 	
 	@Inject DjangoMemoInterface djangoMemo;
 	@InjectView(R.id.MemoListView) ListView memoListView;
-	
-	
+	@Inject GeoCamMemoMessageArrayAdapter adapter;
 	
     /** Called when the activity is first created. */
     @Override
@@ -36,15 +35,7 @@ public class GeoCamMemoActivity extends RoboActivity {
         
         List<GeoCamMemoMessage> memos = djangoMemo.getMemos();
         
-        GeoCamMemoMessage[] memoAry = new GeoCamMemoMessage[memos.size()];
-        for(int i = 0; i < memos.size(); i++)
-        {
-        	memoAry[i] = memos.get(i);
-        }
-        
-        
-        GeoCamMemoMessageArrayAdapter adapter = 
-        	new GeoCamMemoMessageArrayAdapter(getApplicationContext(), R.layout.list_item, memoAry);
+        adapter.setMemos(memos);
         
         memoListView.setAdapter(adapter);
     }

@@ -1,5 +1,6 @@
 package gov.nasa.arc.geocam.memo;
 
+import gov.nasa.arc.geocam.memo.activity.GeoCamMemoMessageArrayAdapter;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
@@ -14,10 +15,11 @@ public class GeoCamMemoModule extends AbstractAndroidModule{
 
 	@Override
 	protected void configure() {
+		requestStaticInjection(GeoCamMemoMessageArrayAdapter.class);
+		//bind(GeoCamMemoMessageArrayAdapter.class).to(GeoCamMemoMessageArrayAdapter.class);
 		bind(DjangoMemoInterface.class).to(DjangoMemoImplementation.class);
 		bind(DjangoMemoJsonConverterInterface.class)
 		    .to(DjangoMemoJsonConverterImplementation.class);
 		bind(HttpClient.class).toInstance(new DefaultHttpClient());
-		//requestStaticInjection(DjangoMemoImplementation.class);
 	}
 }
