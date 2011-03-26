@@ -22,7 +22,6 @@ public class GeoCamMemoMessageArrayAdapter extends ArrayAdapter<GeoCamMemoMessag
     
 	@Inject protected static Provider<Context> contextProvider;
 	@Inject LayoutInflater mInflater;
-
 	
 	public GeoCamMemoMessageArrayAdapter() {
 		super(contextProvider.get(), R.layout.list_item);
@@ -30,7 +29,7 @@ public class GeoCamMemoMessageArrayAdapter extends ArrayAdapter<GeoCamMemoMessag
 	
 	public void setMemos(List<GeoCamMemoMessage> memos)
 	{
-		clear();
+		this.clear();
 		for(GeoCamMemoMessage m:memos)
 		{
 			add(m);
