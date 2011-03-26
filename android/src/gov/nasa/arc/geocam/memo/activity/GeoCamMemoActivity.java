@@ -25,7 +25,7 @@ public class GeoCamMemoActivity extends RoboActivity {
 	@Inject DjangoMemoInterface djangoMemo;
 	@InjectView(R.id.MemoListView) ListView memoListView;
 	
-	private LayoutInflater mInflater;
+	
 	
     /** Called when the activity is first created. */
     @Override
@@ -35,26 +35,16 @@ public class GeoCamMemoActivity extends RoboActivity {
         
         List<GeoCamMemoMessage> memos = djangoMemo.getMemos();
         
-        List<String>memoList = new ArrayList<String>();
+        GeoCamMemoMessage[] memoAry = new GeoCamMemoMessage[memos.size()];
+        for(int i = 0; i < memos.size(); i++)
+        {
+        	memoAry[i] = memos.get(i);
+        }
         
-        mInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         
-        memoListView.setAdapter(new ArrayAdapter<String>(this, R.layout.list_item, memoList) {
-        	@Override
-        	public View getView(int position, View convertView, ViewGroup parent) {
-        		View row;
-        		        		
-        		if (null == convertView) {
-        			row = mInflater.inflate(R.layout.list_item, null);
-        		} else {
-        			row = convertView;
-        		}
-        		
-        		TextView tv = (TextView) row.findViewById(android.R.id.text1);
-        		tv.setText(getItem(position));
-        		
-        		return row;
-        	}
-        });
+        GeoCamMemoMessageArrayAdapter adapter = 
+        	new GeoCamMemoMessageArrayAdapter(getApplicationContext(), R.layout.list_item, memoAry);
+        
+        memoListView.setAdapter(adapter);
     }
 }
