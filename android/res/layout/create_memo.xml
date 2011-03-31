@@ -5,15 +5,32 @@
 	
 	<LinearLayout style="@style/TitleBar">
 		<ImageButton android:id="@+id/title_create_button"
-        		android:layout_width="fill_parent"
+        		android:layout_width="@dimen/logo_title_width"
         		android:layout_height="fill_parent"
         		android:layout_alignWithParentIfMissing="true"
         		android:layout_alignParentLeft="true"
         		android:layout_alignParentTop="true"
-        		android:layout_alignParentBottom="true"                
-        		android:onClick="onHomeClick" />
+        		android:layout_alignParentBottom="true"
+        		android:src="@drawable/title"           
+        		android:onClick="onHomeClick" />        
     </LinearLayout>
-    
-	<ListView android:id="@+id/MemoListView" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
+   	<EditText 
+		android:id="@+id/editInput"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+        android:imeOptions="actionSend|flagNoEnterAction"
+        android:gravity="top"
+        android:maxLines="4"
+        android:maxLength="1024" />
+    <Button android:id="@+id/send_button"
+    	android:text="Send"
+     	android:layout_width="@dimen/logo_title_width"
+     	android:layout_height="@dimen/send_button_height"
+     	android:layout_alignWithParentIfMissing="true"
+     	android:layout_alignParentLeft="true"
+     	android:layout_alignParentTop="true"
+     	android:layout_alignParentBottom="true"     		           
+     	android:onClick="onHomeClick" />  
 </LinearLayout>

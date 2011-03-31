@@ -11,9 +11,7 @@
         		android:layout_alignParentLeft="true"
         		android:layout_alignParentTop="true"
         		android:layout_alignParentBottom="true"
-        		android:src="@drawable/title"   
-        		android:background="@color/title_background"
-        		android:onClick="onHomeClick" />
+        		android:src="@drawable/title" />
 		<ImageButton android:id="@+id/title_create_button"
         		android:layout_width="@dimen/title_height"
         		android:layout_height="fill_parent"
@@ -22,7 +20,7 @@
         		android:layout_alignParentTop="true"
         		android:layout_alignParentBottom="true"
         		android:src="@drawable/create_icon"               
-        		android:onClick="onHomeClick" />
+        		android:onClick="onCreateMemoClick" />
     </LinearLayout>
     
 	<ListView android:id="@+id/MemoListView" android:layout_width="wrap_content"

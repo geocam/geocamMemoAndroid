@@ -15,7 +15,7 @@ import android.widget.ListView;
 
 import com.google.inject.Inject;
 
-public class GeoCamMemoActivity extends RoboActivity {
+public class GeoCamMemoHomeActivity extends RoboActivity {
 
 	@Inject	DjangoMemoInterface djangoMemo;
 	@InjectView(R.id.MemoListView)ListView memoListView;
@@ -25,15 +25,15 @@ public class GeoCamMemoActivity extends RoboActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.home);
 
 		List<GeoCamMemoMessage> memos = djangoMemo.getMemos();
 		adapter.setMemos(memos);
 
 		memoListView.setAdapter(adapter);
 	}
-
-	public void onHomeClick(View v) {
-		UIUtils.goHome(this);
+	
+	public void onCreateMemoClick(View v){
+		UIUtils.createMemo(this);
 	}
 }
