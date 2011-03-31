@@ -15,7 +15,7 @@
         		android:onClick="onHomeClick" />        
     </LinearLayout>
    	<EditText 
-		android:id="@+id/editInput"
+		android:id="@+id/newMemoInput"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:layout_weight="1"
@@ -32,5 +32,5 @@
      	android:layout_alignParentLeft="true"
      	android:layout_alignParentTop="true"
      	android:layout_alignParentBottom="true"     		           
-     	android:onClick="onHomeClick" />  
+     	android:onClick="onSendClick" />  
 </LinearLayout>
