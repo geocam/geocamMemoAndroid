@@ -4,11 +4,21 @@
 	android:layout_height="fill_parent"	>
 	
 	<LinearLayout style="@style/TitleBar">
+	    <ImageButton android:id="@+id/title_button"
+        		android:layout_width="@dimen/logo_title_width"
+        		android:layout_height="fill_parent"
+        		android:layout_alignWithParentIfMissing="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_alignParentTop="true"
+        		android:layout_alignParentBottom="true"
+        		android:src="@drawable/title"   
+        		android:background="@color/title_background"
+        		android:onClick="onHomeClick" />
 		<ImageButton android:id="@+id/title_create_button"
         		android:layout_width="@dimen/title_height"
         		android:layout_height="fill_parent"
         		android:layout_alignWithParentIfMissing="true"
-        		android:layout_alignParentLeft="true"
+        		android:layout_alignParentRight="true"
         		android:layout_alignParentTop="true"
         		android:layout_alignParentBottom="true"
         		android:src="@drawable/create_icon"               

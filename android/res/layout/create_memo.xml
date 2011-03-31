@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"	>
+	
+	<LinearLayout style="@style/TitleBar">
+		<ImageButton android:id="@+id/title_create_button"
+        		android:layout_width="fill_parent"
+        		android:layout_height="fill_parent"
+        		android:layout_alignWithParentIfMissing="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_alignParentTop="true"
+        		android:layout_alignParentBottom="true"                
+        		android:onClick="onHomeClick" />
+    </LinearLayout>
+    
+	<ListView android:id="@+id/MemoListView" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+</LinearLayout>
