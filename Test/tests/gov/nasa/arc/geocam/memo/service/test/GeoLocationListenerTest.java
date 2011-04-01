@@ -1,6 +1,6 @@
 package gov.nasa.arc.geocam.memo.service.test;
 
-import gov.nasa.arc.geocam.memo.service.GeoLocationListenerImplementation;
+import gov.nasa.arc.geocam.memo.service.GeoLocationListener;
 import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
 import org.junit.Test;
@@ -12,7 +12,7 @@ public class GeoLocationListenerTest extends GeoCamTestCase {
 	
 	@Test public void shouldUpdateLocationOnLocationChanged() throws Exception {
 		// arrange
-		GeoLocationListenerImplementation listener = new GeoLocationListenerImplementation();
+		GeoLocationListener listener = new GeoLocationListener();
 		Location location = new Location("JupiterTest");
 		
 		// act

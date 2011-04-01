@@ -1,14 +1,14 @@
 package gov.nasa.arc.geocam.memo.activity;
 
+import gov.nasa.arc.geocam.memo.GeoCamMemoRoboApplication;
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.UIUtils;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
-import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectView;
 
 public class GeoCamMemoCreateActivity extends RoboActivity{
 	
@@ -19,6 +19,12 @@ public class GeoCamMemoCreateActivity extends RoboActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_memo);
+		
+		GeoCamMemoRoboApplication appState = (GeoCamMemoRoboApplication)getApplicationContext();
+		
+		String forToast = String.valueOf(appState.getLocation().getLatitude());
+		
+		Toast.makeText(this, forToast, Toast.LENGTH_LONG).show();
 	}
 
 	public void onHomeClick(View v) {
