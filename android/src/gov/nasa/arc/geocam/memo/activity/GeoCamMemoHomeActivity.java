@@ -26,7 +26,7 @@ public class GeoCamMemoHomeActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
-
+		
 		List<GeoCamMemoMessage> memos = djangoMemo.getMemos();
 		adapter.setMemos(memos);
 

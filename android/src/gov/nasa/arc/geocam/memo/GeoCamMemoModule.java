@@ -7,8 +7,6 @@ import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
 import gov.nasa.arc.geocam.memo.service.GeoLocationListenerImplementation;
 import gov.nasa.arc.geocam.memo.service.GeoLocationListenerInterface;
-import gov.nasa.arc.geocam.memo.service.GeoLocationServiceImplementation;
-import gov.nasa.arc.geocam.memo.service.GeoLocationServiceInterface;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -25,7 +23,6 @@ public class GeoCamMemoModule extends AbstractAndroidModule{
 		    .to(DjangoMemoJsonConverterImplementation.class);
 		bind(HttpClient.class).toInstance(new DefaultHttpClient());
 		bind(GeoLocationListenerInterface.class).to(GeoLocationListenerImplementation.class);
-		bind(GeoLocationServiceInterface.class).to(GeoLocationServiceImplementation.class);
 	}
 	
 	

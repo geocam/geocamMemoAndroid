@@ -2,6 +2,7 @@ package gov.nasa.arc.geocam.memo.service;
 
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 
 public class GeoLocationListenerImplementation
              implements GeoLocationListenerInterface {
@@ -11,6 +12,7 @@ public class GeoLocationListenerImplementation
 	@Override
 	public void onLocationChanged(Location location) {
 		curLocation = location;
+		Log.d("location", "location listened");
 	}
 
 	@Override
