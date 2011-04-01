@@ -18,6 +18,7 @@ public class GeoCamMemoModule extends AbstractAndroidModule{
 	@Override
 	protected void configure() {
 		requestStaticInjection(GeoCamMemoMessageArrayAdapter.class);
+		requestStaticInjection(DjangoMemoImplementation.class);
 		bind(DjangoMemoInterface.class).to(DjangoMemoImplementation.class);
 		bind(DjangoMemoJsonConverterInterface.class)
 		    .to(DjangoMemoJsonConverterImplementation.class);
