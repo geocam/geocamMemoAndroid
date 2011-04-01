@@ -19,11 +19,10 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:layout_weight="1"
-        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
         android:imeOptions="actionSend|flagNoEnterAction"
         android:gravity="top"
         android:maxLines="4"
-        android:maxLength="1024" />
+        android:maxLength="1024" android:inputType="text|textCapSentences|textAutoCorrect|textMultiLine|textShortMessage"/>
     <Button android:id="@+id/send_button"
     	android:text="Send"
      	android:layout_width="@dimen/logo_title_width"
