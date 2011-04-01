@@ -1,11 +1,10 @@
 package gov.nasa.arc.geocam.memo.service;
 
 import android.location.Location;
-import android.location.LocationListener;
 import android.os.Bundle;
 
 public class GeoLocationListenerImplementation
-             implements LocationListener, GeoLocationListenerInterface {
+             implements GeoLocationListenerInterface {
 
 	private Location curLocation;
 	
