@@ -5,6 +5,8 @@ import gov.nasa.arc.geocam.memo.service.DjangoMemoImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
+import gov.nasa.arc.geocam.memo.service.SiteAuthCookieImplementation;
+import gov.nasa.arc.geocam.memo.service.SiteAuthInterface;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -20,7 +22,7 @@ public class GeoCamMemoModule extends AbstractAndroidModule{
 		bind(DjangoMemoInterface.class).to(DjangoMemoImplementation.class);
 		bind(DjangoMemoJsonConverterInterface.class)
 		    .to(DjangoMemoJsonConverterImplementation.class);
-		bind(HttpClient.class).toInstance(new DefaultHttpClient());
+		bind(SiteAuthInterface.class).toInstance(new SiteAuthCookieImplementation());		
 	}
 	
 	

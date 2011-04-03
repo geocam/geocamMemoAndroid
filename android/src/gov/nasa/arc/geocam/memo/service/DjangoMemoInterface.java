@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface DjangoMemoInterface {
 	public List<GeoCamMemoMessage> getMemos();
+	public void setAuth(String username, String password);
 }

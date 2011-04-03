@@ -9,7 +9,10 @@ import java.util.List;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ListView;
 
@@ -26,6 +29,13 @@ public class GeoCamMemoHomeActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
+		
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		
+		String username = prefs.getString("webapp_username", null);
+		String password = prefs.getString("webapp_password", null);
+		
+		djangoMemo.setAuth(username, password);
 		
 		List<GeoCamMemoMessage> memos = djangoMemo.getMemos();
 		adapter.setMemos(memos);
