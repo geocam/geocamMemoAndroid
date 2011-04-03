@@ -4,6 +4,7 @@ import gov.nasa.arc.geocam.memo.GeoCamMemoRoboApplication;
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.UIUtils;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
+import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.location.Location;
@@ -18,6 +19,8 @@ public class GeoCamMemoCreateActivity extends RoboActivity{
 	
 	@InjectView(R.id.newMemoInput)EditText newMemoInput;
 	@Inject GeoCamMemoRoboApplication appState;
+	@Inject DjangoMemoInterface djangoMemoInterface;
+	
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -53,7 +56,6 @@ public class GeoCamMemoCreateActivity extends RoboActivity{
 				message.setAccuracy((int) location.getAccuracy());
 			}
 		}
-		
-		
+		djangoMemoInterface.createMemo(message);
 	}
 }

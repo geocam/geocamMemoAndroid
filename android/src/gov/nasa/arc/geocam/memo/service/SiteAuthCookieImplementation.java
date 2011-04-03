@@ -1,6 +1,7 @@
 package gov.nasa.arc.geocam.memo.service;
 
 import gov.nasa.arc.geocam.memo.R;
+import gov.nasa.arc.geocam.memo.exception.AuthorizationFailedException;
 
 import java.io.BufferedReader;
 import java.io.IOException;

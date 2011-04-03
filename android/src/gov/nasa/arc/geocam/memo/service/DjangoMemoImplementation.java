@@ -4,6 +4,7 @@ package gov.nasa.arc.geocam.memo.service;
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 
+import java.util.HashMap;
 import java.util.List;
 
 import roboguice.inject.InjectResource;
@@ -19,6 +20,7 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 	@InjectResource(R.string.url_server_root) String serverRootUrl;
 	@InjectResource(R.string.url_relative_app) String appPath;
 	@InjectResource(R.string.url_message_list) String memoMessagesJson;
+	@InjectResource(R.string.url_create_message) String createMemoMessageJson;
 	@Inject protected static Provider<Context> contextProvider;
 	@Inject SiteAuthInterface siteAuthImplementation;
 	
@@ -44,6 +46,13 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 
 	@Override
 	public void createMemo(GeoCamMemoMessage message) {
-			
+		try {
+			HashMap<String,String>map = new HashMap<String,String>();
+			map.put("message", jsonConverter.serialize(message));
+			int responseCode = siteAuthImplementation.post(createMemoMessageJson, map);
+		} catch (Exception e) {	
+			Toast.makeText(contextProvider.get(), "Cannot access Memo Web to create new memo", 
+					       Toast.LENGTH_SHORT).show();	
+		}
 	}
 }

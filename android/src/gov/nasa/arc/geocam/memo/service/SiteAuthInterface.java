@@ -1,5 +1,7 @@
 package gov.nasa.arc.geocam.memo.service;
 
+import gov.nasa.arc.geocam.memo.exception.AuthorizationFailedException;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -13,5 +15,3 @@ public interface SiteAuthInterface {
     public String get(String relativePath, Map<String, String> params) 
             throws AuthorizationFailedException, IOException, ClientProtocolException;
 }
-
-class AuthorizationFailedException extends Exception{}

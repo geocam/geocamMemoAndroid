@@ -3,4 +3,5 @@
     <string name="url_server_root">http://10.0.2.2:8080</string>
     <string name="url_message_list">messages.json</string>
     <string name="url_relative_app">memo</string>
+    <string name="url_create_message">messages/create.json</string>
 </resources>
