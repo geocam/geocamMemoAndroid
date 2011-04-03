@@ -1,10 +1,12 @@
 package gov.nasa.arc.geocam.memo.bean;
 
+//A comment to try to get this to commit
+
 import java.util.Date;
 
 public class GeoCamMemoMessage {
 
-	private int 		messageId;
+	private Integer		messageId;
 	private Integer  	authorId;
 	private String 		authorUsername;
 	private String		authorFullname;
@@ -13,7 +15,7 @@ public class GeoCamMemoMessage {
 	private Double 		latitude;
 	private Double 		longitude;
 	private Integer 	accuracy;
-	private boolean		hasGeolocation;
+	private Boolean		hasGeolocation;
 	
 	public int getMessageId() {
 		return messageId;
@@ -75,15 +77,13 @@ public class GeoCamMemoMessage {
 	public void setHasGeolocation(boolean hasGeolocation) {
 		this.hasGeolocation = hasGeolocation;
 	}
-
-
 	
 	@Override
 	public boolean equals(Object o) {
 		GeoCamMemoMessage other = (GeoCamMemoMessage)o;
 		
 		return 
-		this.messageId == other.messageId && 	
+		equalOrBothNull(messageId, other.messageId) && 	
 		equalOrBothNull(authorId, other.authorId) &&
 		equalOrBothNull(authorUsername, other.authorUsername) &&
 		equalOrBothNull(authorFullname, other.authorFullname) &&
@@ -92,7 +92,7 @@ public class GeoCamMemoMessage {
 		equalOrBothNull(latitude, other.latitude) &&
 		equalOrBothNull(longitude, other.longitude) &&
 		equalOrBothNull(accuracy, other.accuracy) &&
-		this.hasGeolocation == other.hasGeolocation;
+		equalOrBothNull(hasGeolocation, other.hasGeolocation);
 	}
 	
 	// TODO: Revisit this if we need other helper methods. Maybe move to global helper function?
