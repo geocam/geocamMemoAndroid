@@ -77,4 +77,28 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestC
 		// arrange
 		assertEquals(message, convertedMessage);
 	}
+	
+	@Test
+	public void ensureSerializeReturnsProperString() throws Exception
+	{
+		DjangoMemoJsonConverterImplementation converter =
+			new DjangoMemoJsonConverterImplementation();
+		
+		GeoCamMemoMessage msg = new GeoCamMemoMessage();
+		msg.setContent("contentTest");
+		msg.setAccuracy(10);
+		msg.setLatitude(11);
+		msg.setLongitude(20.5);
+		
+		String jsonString = converter.serialize(msg);
+		
+		assertTrue(jsonString.contains("content"));
+		assertTrue(jsonString.contains("contentTest"));
+		assertTrue(jsonString.contains("accuracy"));
+		assertTrue(jsonString.contains("10"));
+		assertTrue(jsonString.contains("latitude"));
+		assertTrue(jsonString.contains("11"));
+		assertTrue(jsonString.contains("longitude"));
+		assertTrue(jsonString.contains("20.5"));	
+	}
 }

@@ -41,4 +41,9 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 	public void setAuth(String username, String password) {
 		siteAuthImplementation.setAuth(username, password);		
 	}
+
+	@Override
+	public void createMemo(GeoCamMemoMessage message) {
+			
+	}
 }

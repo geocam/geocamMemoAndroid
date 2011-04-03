@@ -7,4 +7,5 @@ import java.util.List;
 public interface DjangoMemoJsonConverterInterface {
 	List<GeoCamMemoMessage> deserializeList(String jsonString);
 	GeoCamMemoMessage deserialize(String jsonString);
+	String serialize(GeoCamMemoMessage message);
 }
