@@ -5,6 +5,7 @@ import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
 import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -86,14 +87,16 @@ public class DjangoGeoCamMemoJsonConverterImplementationTest extends GeoCamTestC
 		
 		GeoCamMemoMessage msg = new GeoCamMemoMessage();
 		msg.setContent("contentTest");
+		msg.setContentTimestamp(new Date());
 		msg.setAccuracy(10);
 		msg.setLatitude(11);
 		msg.setLongitude(20.5);
 		
 		String jsonString = converter.serialize(msg);
 		
-		assertTrue(jsonString.contains("content"));
+		assertTrue(jsonString.contains("content"));	
 		assertTrue(jsonString.contains("contentTest"));
+		assertTrue(jsonString.contains("contentTimestamp"));
 		assertTrue(jsonString.contains("accuracy"));
 		assertTrue(jsonString.contains("10"));
 		assertTrue(jsonString.contains("latitude"));

@@ -5,6 +5,9 @@ import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.UIUtils;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
+
+import java.util.Date;
+
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.location.Location;
@@ -27,12 +30,6 @@ public class GeoCamMemoCreateActivity extends RoboActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_memo);
-		
-		//GeoCamMemoRoboApplication appState = (GeoCamMemoRoboApplication)getApplicationContext();
-		
-		String forToast = String.valueOf(appState.getLocation().getLatitude());
-		
-		Toast.makeText(this, forToast, Toast.LENGTH_LONG).show();
 	}
 
 	public void onHomeClick(View v) {
@@ -46,9 +43,10 @@ public class GeoCamMemoCreateActivity extends RoboActivity{
 				
 		GeoCamMemoMessage message = new GeoCamMemoMessage();
 		message.setContent(text.toString());
+		message.setContentTimestamp(new Date());
 		
 		if(location != null)
-		{
+		{		
 			message.setLatitude(location.getLatitude());
 			message.setLongitude(location.getLongitude());
 			if(location.hasAccuracy())
@@ -57,5 +55,6 @@ public class GeoCamMemoCreateActivity extends RoboActivity{
 			}
 		}
 		djangoMemoInterface.createMemo(message);
+		UIUtils.goHome(this);
 	}
 }
