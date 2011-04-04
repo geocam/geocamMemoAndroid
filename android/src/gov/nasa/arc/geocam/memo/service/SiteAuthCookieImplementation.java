@@ -63,13 +63,16 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		HttpPost post = new HttpPost(this.serverRootUrl + "/" + appPath + "/" + relativePath);
 		post.setParams(httpParams);
 		
-		List<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
-		for(String key:params.keySet())
+		if(params != null)
 		{
-			nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));			
+			List<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
+			for(String key:params.keySet())
+			{
+				nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));			
+			}
+			
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, HTTP.ASCII));
 		}
-		
-		post.setEntity(new UrlEncodedFormEntity(nameValuePairs, HTTP.ASCII));
 		
 		httpClient.getCookieStore().addCookie(sessionIdCookie);
 		//post.setHeader("Cookie", sessionIdCookie.toString());
@@ -103,8 +106,9 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		StringBuilder sb = new StringBuilder();
 		String line = null;
 
-		while ((line = br.readLine()) != null) {
-			sb.append(line + "\n");
+		int c = 0;
+		while ((c = br.read()) != -1) {
+			sb.append((char)c);
 		}
 
 		br.close();
