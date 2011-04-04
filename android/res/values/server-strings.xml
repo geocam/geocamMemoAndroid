@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="memo_url">http://10.0.2.2:8080/memo/</string>
-    <string name="memo_messages">messages.json</string>
+    <string name="url_server_root">http://10.0.2.2:8080</string>
+    <string name="url_message_list">messages.json</string>
+    <string name="url_relative_app">memo</string>
+    <string name="url_create_message">messages/create.json</string>
 </resources>

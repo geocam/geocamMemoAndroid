@@ -46,4 +46,16 @@ public class FakeDjangoMemoImplementation implements DjangoMemoInterface{
 		
 		return testList;
 	}
+
+	@Override
+	public void createMemo(GeoCamMemoMessage message) {
+		
+		
+	}
+
+	@Override
+	public void setAuth(String username, String password) {
+		
+		
+	}
 }

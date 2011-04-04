@@ -30,4 +30,14 @@ public class DjangoMemoJsonConverterImplementation
 		Gson gson = builder.create();
 		return gson.fromJson(jsonString, GeoCamMemoMessage.class);
 	}
+
+	@Override
+	public String serialize(GeoCamMemoMessage message) {
+		GsonBuilder builder = new GsonBuilder();
+		builder.setDateFormat("MM/dd/yy HH:mm:ss");
+		
+		Gson gson = builder.create();
+		String ret= gson.toJson(message);
+		return ret;
+	}
 }
