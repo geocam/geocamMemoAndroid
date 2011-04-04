@@ -53,7 +53,7 @@ public class DjangoMemoImplementationTest extends GeoCamTestCase {
 		
 		SiteAuthInterface siteauth =
 			mock(SiteAuthInterface.class);
-		when(siteauth.post(anyString(), anyMap())).thenReturn(302);
+		when(siteauth.post(anyString(), anyMap())).thenReturn(200);
 		setHiddenField(memoImpl, "siteAuthImplementation", siteauth);
 				
 		when(jsonConv.serialize((GeoCamMemoMessage)anyObject())).thenReturn("");

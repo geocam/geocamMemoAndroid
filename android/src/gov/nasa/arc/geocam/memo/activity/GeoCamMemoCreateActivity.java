@@ -4,6 +4,7 @@ import gov.nasa.arc.geocam.memo.GeoCamMemoRoboApplication;
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.UIUtils;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
+import gov.nasa.arc.geocam.memo.exception.AuthenticationFailedException;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 
 import java.util.Date;
@@ -14,17 +15,18 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.inject.Inject;
 
-public class GeoCamMemoCreateActivity extends RoboActivity{
-	
-	@InjectView(R.id.newMemoInput)EditText newMemoInput;
-	@Inject GeoCamMemoRoboApplication appState;
-	@Inject DjangoMemoInterface djangoMemoInterface;
-	
-	
+public class GeoCamMemoCreateActivity extends RoboActivity {
+
+	@InjectView(R.id.newMemoInput)
+	EditText newMemoInput;
+	@Inject
+	GeoCamMemoRoboApplication appState;
+	@Inject
+	DjangoMemoInterface djangoMemoInterface;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,26 +37,32 @@ public class GeoCamMemoCreateActivity extends RoboActivity{
 	public void onHomeClick(View v) {
 		UIUtils.goHome(this);
 	}
-	
-	public void onSendClick(View v){
+
+	public void onSendClick(View v) {
 		CharSequence text = newMemoInput.getText();
-		
+
 		Location location = appState.getLocation();
-				
+
 		GeoCamMemoMessage message = new GeoCamMemoMessage();
 		message.setContent(text.toString());
 		message.setContentTimestamp(new Date());
-		
-		if(location != null)
-		{		
+
+		if (location != null) {
 			message.setLatitude(location.getLatitude());
 			message.setLongitude(location.getLongitude());
-			if(location.hasAccuracy())
-			{
+			if (location.hasAccuracy()) {
 				message.setAccuracy((int) location.getAccuracy());
 			}
 		}
-		djangoMemoInterface.createMemo(message);
-		UIUtils.goHome(this);
+
+		try {
+			djangoMemoInterface.createMemo(message);
+			UIUtils.goHome(this);
+		} catch (AuthenticationFailedException e) {
+			UIUtils.displayException(this, e, "Could not authenticate with the server");
+		} catch (Exception e) {
+			UIUtils.displayException(this, e, "Communication with the server failed");
+		}
+
 	}
 }

@@ -1,7 +1,7 @@
 package gov.nasa.arc.geocam.memo.service;
 
 import gov.nasa.arc.geocam.memo.R;
-import gov.nasa.arc.geocam.memo.exception.AuthorizationFailedException;
+import gov.nasa.arc.geocam.memo.exception.AuthenticationFailedException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -51,7 +51,7 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 
 	@Override
 	public int post(String relativePath, Map<String, String> params)
-			throws AuthorizationFailedException, IOException,
+			throws AuthenticationFailedException, IOException,
 			ClientProtocolException {
 		ensureAuthenticated();
 
@@ -85,7 +85,7 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 
 	@Override
 	public String get(String relativePath, Map<String, String> params)
-			throws AuthorizationFailedException, IOException,
+			throws AuthenticationFailedException, IOException,
 			ClientProtocolException {
 		ensureAuthenticated();
 		httpClient = new DefaultHttpClient();
@@ -104,7 +104,6 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(content));
 		StringBuilder sb = new StringBuilder();
-		String line = null;
 
 		int c = 0;
 		while ((c = br.read()) != -1) {
@@ -115,11 +114,11 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		return sb.toString();
 	}
 	
-	private void ensureAuthenticated() throws AuthorizationFailedException, ClientProtocolException, IOException
+	private void ensureAuthenticated() throws AuthenticationFailedException, ClientProtocolException, IOException
 	{
 		if(username == null || password == null)
 		{
-			throw new AuthorizationFailedException();
+			throw new AuthenticationFailedException("Username and/or password not set.");
 		} 
 		else
 		{
@@ -132,12 +131,11 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		}
 	}
 	
-	private void login() throws ClientProtocolException, IOException, AuthorizationFailedException
+	private void login() throws ClientProtocolException, IOException, AuthenticationFailedException
 	{
 		httpClient = new DefaultHttpClient();
 		HttpParams params = httpClient.getParams();
 		HttpClientParams.setRedirecting(params, false);
-		//params.setParameter("http.protocol.handle-redirects",false);
 
 		Log.i("Talk", "Username:" + username);
 		
@@ -161,11 +159,11 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 					return;
 				}
 			}	
-			throw new AuthorizationFailedException();
+			throw new AuthenticationFailedException("Session cookie was missing from server login response.");
 		}
 		else
 		{
-			throw new AuthorizationFailedException();
+			throw new AuthenticationFailedException("Got unexpected response code from server: " + r.getStatusLine().getStatusCode());
 		}
 	}
 }

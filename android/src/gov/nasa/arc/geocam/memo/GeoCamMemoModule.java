@@ -7,10 +7,6 @@ import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterImplementation;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoJsonConverterInterface;
 import gov.nasa.arc.geocam.memo.service.SiteAuthCookieImplementation;
 import gov.nasa.arc.geocam.memo.service.SiteAuthInterface;
-
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import roboguice.config.AbstractAndroidModule;
 
 public class GeoCamMemoModule extends AbstractAndroidModule{

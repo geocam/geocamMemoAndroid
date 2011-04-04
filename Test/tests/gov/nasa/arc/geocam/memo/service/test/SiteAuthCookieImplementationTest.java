@@ -3,7 +3,7 @@ package gov.nasa.arc.geocam.memo.service.test;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import gov.nasa.arc.geocam.memo.exception.AuthorizationFailedException;
+import gov.nasa.arc.geocam.memo.exception.AuthenticationFailedException;
 import gov.nasa.arc.geocam.memo.service.SiteAuthCookieImplementation;
 import gov.nasa.arc.geocam.memo.test.GeoCamTestCase;
 
@@ -108,7 +108,7 @@ public class SiteAuthCookieImplementationTest extends GeoCamTestCase{
 		try{
 			saci.get("test", null);
 			fail(); // we should have thrown! FAIL FAIL FAIL
-		} catch (AuthorizationFailedException e)
+		} catch (AuthenticationFailedException e)
 		{
 			// we've successfully thrown auth failed exception
 		}
@@ -127,7 +127,7 @@ public class SiteAuthCookieImplementationTest extends GeoCamTestCase{
 		try{
 			saci.post("test", null);
 			fail(); // we should have thrown! FAIL FAIL FAIL
-		} catch (AuthorizationFailedException e)
+		} catch (AuthenticationFailedException e)
 		{
 			// we've successfully thrown auth failed exception
 		}

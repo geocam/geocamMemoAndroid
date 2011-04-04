@@ -3,19 +3,22 @@ package gov.nasa.arc.geocam.memo.service;
 
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
+import gov.nasa.arc.geocam.memo.exception.AuthenticationFailedException;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.http.client.ClientProtocolException;
+
 import roboguice.inject.InjectResource;
 import android.content.Context;
-import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 public class DjangoMemoImplementation implements DjangoMemoInterface{
-	// TODO: Review as to whether we should be binding a class or an instance of this class
+
 	@Inject DjangoMemoJsonConverterInterface jsonConverter;
 	@InjectResource(R.string.url_server_root) String serverRootUrl;
 	@InjectResource(R.string.url_relative_app) String appPath;
@@ -25,16 +28,12 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 	@Inject SiteAuthInterface siteAuthImplementation;
 	
 	@Override
-	public List<GeoCamMemoMessage> getMemos() {
+	public List<GeoCamMemoMessage> getMemos() throws ClientProtocolException, AuthenticationFailedException, IOException {
 		//String jsonString = 
 		//	"[{\"authorUsername\": \"rhornsby\", \"longitude\": -122.057954, \"content\": \"Structural engineer not allowing access to building. Fire is too out of control. Fire squad alerted.\", \"contentTimestamp\": \"03/13/11 10:48:44\", \"latitude\": 37.411629, \"messageId\": 15, \"accuracy\":60.0}]";
 		String jsonString = null;
 		
-		try {
-			jsonString = siteAuthImplementation.get(memoMessagesJson, null);
-		} catch (Exception e) {
-			Toast.makeText(contextProvider.get(), "Cannot access Memo Web", Toast.LENGTH_SHORT).show();			
-		}
+		jsonString = siteAuthImplementation.get(memoMessagesJson, null);
         
 		return jsonConverter.deserializeList(jsonString);
 	}
@@ -45,14 +44,13 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 	}
 
 	@Override
-	public void createMemo(GeoCamMemoMessage message) {
-		try {
-			HashMap<String,String>map = new HashMap<String,String>();
-			map.put("message", jsonConverter.serialize(message));
-			int responseCode = siteAuthImplementation.post(createMemoMessageJson, map);
-		} catch (Exception e) {	
-			Toast.makeText(contextProvider.get(), "Cannot access Memo Web to create new memo", 
-					       Toast.LENGTH_SHORT).show();	
+	public void createMemo(GeoCamMemoMessage message) throws ClientProtocolException, AuthenticationFailedException, IOException {
+		HashMap<String,String>map = new HashMap<String,String>();
+		map.put("message", jsonConverter.serialize(message));
+		int responseCode = siteAuthImplementation.post(createMemoMessageJson, map);
+		if(responseCode != 200)
+		{
+			throw new ClientProtocolException("Message could not be created (HTTP error "+responseCode+")");
 		}
 	}
 }

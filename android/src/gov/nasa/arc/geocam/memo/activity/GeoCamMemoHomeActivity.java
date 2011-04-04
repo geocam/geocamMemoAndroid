@@ -3,6 +3,7 @@ package gov.nasa.arc.geocam.memo.activity;
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.UIUtils;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
+import gov.nasa.arc.geocam.memo.exception.AuthenticationFailedException;
 import gov.nasa.arc.geocam.memo.service.DjangoMemoInterface;
 
 import java.util.List;
@@ -10,7 +11,6 @@ import java.util.List;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -37,10 +37,18 @@ public class GeoCamMemoHomeActivity extends RoboActivity {
 		
 		djangoMemo.setAuth(username, password);
 		
-		List<GeoCamMemoMessage> memos = djangoMemo.getMemos();
-		adapter.setMemos(memos);
+		List<GeoCamMemoMessage> memos;
+		try {
+		
+			memos = djangoMemo.getMemos();
+			adapter.setMemos(memos);
+			memoListView.setAdapter(adapter);
 
-		memoListView.setAdapter(adapter);
+		} catch (AuthenticationFailedException e) {
+			UIUtils.displayException(this, e, "Could not authenticate with the server.");
+		} catch (Exception e) {
+			UIUtils.displayException(this, e, "Communication with the server failed.");
+		}
 	}
 	
 	public void onCreateMemoClick(View v){
