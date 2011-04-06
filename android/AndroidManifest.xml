@@ -3,7 +3,7 @@
       package="gov.nasa.arc.geocam.memo"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" 
+    <application android:icon="@drawable/icon" android:label="@string/app_name" 
                  android:name=".GeoCamMemoRoboApplication" android:debuggable="true"
                   android:theme="@style/default_style">
         <activity android:name=".activity.GeoCamMemoHomeActivity" android:theme="@android:style/Theme.NoTitleBar">
