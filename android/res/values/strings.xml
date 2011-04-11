@@ -2,4 +2,11 @@
 <resources>
     <string name="hello">Hello World, GeoCamMemo!</string>
     <string name="app_name">GeoCam Memo</string>
+    <string name="webapp_password_title">Password</string>
+    <string name="webapp_user_title">Username</string>
+    <string name="default_username">root</string>
+    <string name="default_password">geocam</string>
+    <string name="settings_menu_button_title">Settings</string>
+    <string name="message_list_button_title">Messages</string>
+    <string name="create_message_button_title">New</string>    
 </resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"	>
+	
+	<LinearLayout style="@style/TitleBar">
+		<ImageButton android:id="@+id/title_create_button"
+        		android:layout_width="@dimen/logo_title_width"
+        		android:layout_height="fill_parent"
+        		android:layout_alignWithParentIfMissing="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_alignParentTop="true"
+        		android:layout_alignParentBottom="true"
+        		android:src="@drawable/title"           
+        		android:onClick="onHomeClick" />        
+    </LinearLayout>
+   	<EditText 
+		android:id="@+id/newMemoInput"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:imeOptions="actionSend|flagNoEnterAction"
+        android:gravity="top"
+        android:maxLines="4"
+        android:maxLength="1024" android:inputType="text|textCapSentences|textAutoCorrect|textMultiLine|textShortMessage"/>
+    <Button android:id="@+id/send_button"
+    	android:text="Send"
+     	android:layout_width="@dimen/logo_title_width"
+     	android:layout_height="@dimen/send_button_height"
+     	android:layout_alignWithParentIfMissing="true"
+     	android:layout_alignParentLeft="true"
+     	android:layout_alignParentTop="true"
+     	android:layout_alignParentBottom="true"     		           
+     	android:onClick="onSendClick" />  
+</LinearLayout>
