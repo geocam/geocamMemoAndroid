@@ -11,7 +11,7 @@ public class GeoCamMemoMessage {
 	private String 		authorUsername;
 	private String		authorFullname;
 	private String 		content;
-	private Date 		contentTimestamp;
+	private Long 		contentTimestamp;
 	private Double 		latitude;
 	private Double 		longitude;
 	private Integer 	accuracy;
@@ -47,11 +47,17 @@ public class GeoCamMemoMessage {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getContentTimestamp() {
-		return contentTimestamp;
+	public Long getContentTimestamp() {
+		return this.contentTimestamp;
+	}
+	public void setContentTimestamp(Long contentTimestamp) {
+		this.contentTimestamp = contentTimestamp;
+	}
+	public Date getContentTimestampDate() {
+		return new Date(this.contentTimestamp);
 	}
 	public void setContentTimestamp(Date contentTimestamp) {
-		this.contentTimestamp = contentTimestamp;
+		this.contentTimestamp = contentTimestamp.getTime();
 	}
 	public Double getLatitude() {
 		return latitude;
