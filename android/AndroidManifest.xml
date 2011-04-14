@@ -16,6 +16,11 @@
          		  android:theme="@android:style/Theme.NoTitleBar"
          		  android:windowSoftInputMode="adjustResize" >
         </activity>
+        <activity android:name=".activity.GeoCamMemoMapView"
+         		  android:theme="@android:style/Theme.NoTitleBar"
+         		  android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <uses-library android:name="com.google.android.maps" />
     </application>
     <uses-sdk android:minSdkVersion="8" />
     <uses-permission android:name="android.permission.INTERNET" />

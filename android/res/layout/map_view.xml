@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"	>
+	
+   	<LinearLayout style="@style/TitleBar">
+		<ImageButton android:id="@+id/title_create_button"
+        		android:layout_width="@dimen/logo_title_width"
+        		android:layout_height="fill_parent"
+        		android:layout_alignWithParentIfMissing="true"
+        		android:layout_alignParentLeft="true"
+        		android:layout_alignParentTop="true"
+        		android:layout_alignParentBottom="true"
+        		android:src="@drawable/title"           
+        		android:onClick="onHomeClick" />     
+	</LinearLayout>   
+    
+    <com.google.android.maps.MapView
+    	android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:apiKey="0Ej6bP4JO2AXysK-sTzoNI3MK3pR1M2NxupXZNQ"	/>
+
+</LinearLayout>

@@ -15,6 +15,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.inject.Inject;
@@ -51,6 +52,17 @@ public class GeoCamMemoHomeActivity extends RoboActivity {
  
 		adapter.setMemos(memos);
 		memoListView.setAdapter(adapter);
+		
+		memoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parentView, View childView,
+					                                     int position, long id) {
+				GeoCamMemoMessage msg = adapter.getItem(position);
+				if (msg.hasGeolocation()) {
+					UIUtils.showMapView(parentView.getContext(), msg);
+				}
+			}
+		});
 
 	}
 	

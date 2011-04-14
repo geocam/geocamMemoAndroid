@@ -6,4 +6,5 @@
     <item type="id" name="title_create_button" />
     <item type="id" name="newMemoInput" />
     <item type="id" name="send_button" />
+    <item type="id" name="mapview" />
 </resources>
