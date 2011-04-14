@@ -11,7 +11,6 @@ public class MemoMapOverlay extends ItemizedOverlay<OverlayItem> {
 
 	public MemoMapOverlay(Drawable defaultMarker) {
 		super(boundCenterBottom(defaultMarker));
-		// TODO Auto-generated constructor stub
 	}
 
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
