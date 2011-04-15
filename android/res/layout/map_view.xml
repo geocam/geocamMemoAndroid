@@ -24,4 +24,8 @@
         android:clickable="true"
         android:apiKey="0Ej6bP4JO2AXysK-sTzoNI3MK3pR1M2NxupXZNQ"	/>
 
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"    />
 </LinearLayout>

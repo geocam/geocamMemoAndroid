@@ -2,7 +2,7 @@ package gov.nasa.arc.geocam.memo;
 
 import gov.nasa.arc.geocam.memo.activity.GeoCamMemoCreateActivity;
 import gov.nasa.arc.geocam.memo.activity.GeoCamMemoHomeActivity;
-import gov.nasa.arc.geocam.memo.activity.GeoCamMemoMapView;
+import gov.nasa.arc.geocam.memo.activity.GeoCamMemoMapActivity;
 import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 import android.content.Context;
 import android.content.Intent;
@@ -26,10 +26,11 @@ public class UIUtils {
     }
     
     public static void showMapView(Context context, GeoCamMemoMessage memoMessage) {
-    	final Intent intent = new Intent(context, GeoCamMemoMapView.class);
+    	final Intent intent = new Intent(context, GeoCamMemoMapActivity.class);
     	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     	intent.putExtra("Latitude", memoMessage.getLatitude());
     	intent.putExtra("Longitude", memoMessage.getLongitude());
+    	intent.putExtra("Accuracy", memoMessage.getAccuracy());
     	context.startActivity(intent);    	
     }
     

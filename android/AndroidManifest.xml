@@ -16,7 +16,7 @@
          		  android:theme="@android:style/Theme.NoTitleBar"
          		  android:windowSoftInputMode="adjustResize" >
         </activity>
-        <activity android:name=".activity.GeoCamMemoMapView"
+        <activity android:name=".activity.GeoCamMemoMapActivity"
          		  android:theme="@android:style/Theme.NoTitleBar"
          		  android:windowSoftInputMode="adjustResize" >
         </activity>

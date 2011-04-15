@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
@@ -20,9 +21,10 @@ import gov.nasa.arc.geocam.memo.service.MemoMapOverlay;
 import roboguice.activity.RoboMapActivity;
 import roboguice.inject.InjectView;;
 
-public class GeoCamMemoMapView extends RoboMapActivity{
+public class GeoCamMemoMapActivity extends RoboMapActivity{
 
 	@InjectView(R.id.mapview)	MapView mapView;
+	@InjectView(R.id.textview)  TextView textView;
 
 	MapController mapController;
 	List<Overlay> mapOverlays;
@@ -37,6 +39,17 @@ public class GeoCamMemoMapView extends RoboMapActivity{
 		Intent intent = getIntent();
 		double latitude = intent.getDoubleExtra("Latitude", 0.00);
 		double longitude = intent.getDoubleExtra("Longitude", 0.00);
+		int accuracy = intent.getIntExtra("Accuracy", 0);
+		
+		//Create the text to put in the textView
+		StringBuilder sb = new StringBuilder();
+		sb.append("Latitude:\t");
+		sb.append(latitude);
+		sb.append("\nLongitude:\t");
+		sb.append(longitude);		
+		sb.append("\nAccuracy:\t");
+		sb.append(accuracy);
+		textView.setText(sb.toString());
 				
 		mapView.setBuiltInZoomControls(true);
 		mapOverlays = mapView.getOverlays();
