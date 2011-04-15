@@ -28,9 +28,9 @@ public class UIUtils {
     public static void showMapView(Context context, GeoCamMemoMessage memoMessage) {
     	final Intent intent = new Intent(context, GeoCamMemoMapActivity.class);
     	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    	intent.putExtra("Latitude", memoMessage.getLatitude());
-    	intent.putExtra("Longitude", memoMessage.getLongitude());
-    	intent.putExtra("Accuracy", memoMessage.getAccuracy());
+    	intent.putExtra(context.getString(R.string.latitude), memoMessage.getLatitude());
+    	intent.putExtra(context.getString(R.string.longitude), memoMessage.getLongitude());
+    	intent.putExtra(context.getString(R.string.accuracy), memoMessage.getAccuracy());
     	context.startActivity(intent);    	
     }
     

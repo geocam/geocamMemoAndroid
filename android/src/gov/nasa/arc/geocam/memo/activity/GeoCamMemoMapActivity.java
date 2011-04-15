@@ -6,25 +6,25 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
+import com.google.android.maps.*;
 
 import gov.nasa.arc.geocam.memo.R;
 import gov.nasa.arc.geocam.memo.UIUtils;
 import gov.nasa.arc.geocam.memo.service.MemoMapOverlay;
 import roboguice.activity.RoboMapActivity;
+import roboguice.inject.InjectResource;
 import roboguice.inject.InjectView;;
 
 public class GeoCamMemoMapActivity extends RoboMapActivity{
 
 	@InjectView(R.id.mapview)	MapView mapView;
 	@InjectView(R.id.textview)  TextView textView;
+	@InjectResource(R.drawable.map_marker) Drawable mapMarker;
+	@InjectResource(R.string.latitude) String latitudeStr;
+	@InjectResource(R.string.longitude) String longitudeStr;
+	@InjectResource(R.string.accuracy) String accuracyStr;
 
 	MapController mapController;
 	List<Overlay> mapOverlays;
@@ -37,25 +37,21 @@ public class GeoCamMemoMapActivity extends RoboMapActivity{
 		
 		//Get the latitude and longitude from the Intent
 		Intent intent = getIntent();
-		double latitude = intent.getDoubleExtra("Latitude", 0.00);
-		double longitude = intent.getDoubleExtra("Longitude", 0.00);
-		int accuracy = intent.getIntExtra("Accuracy", 0);
+		double latitude = intent.getDoubleExtra(latitudeStr, 0.00);
+		double longitude = intent.getDoubleExtra(longitudeStr, 0.00);
+		int accuracy = intent.getIntExtra(accuracyStr, 0);
 		
 		//Create the text to put in the textView
 		StringBuilder sb = new StringBuilder();
-		sb.append("Latitude:\t");
-		sb.append(latitude);
-		sb.append("\nLongitude:\t");
-		sb.append(longitude);		
-		sb.append("\nAccuracy:\t");
-		sb.append(accuracy);
+		sb.append(latitudeStr + ":\t" + latitude + "\n");
+		sb.append(longitudeStr + ":\t" + longitude + "\n");	
+		sb.append(accuracyStr + ":\t" + accuracy);
 		textView.setText(sb.toString());
 				
 		mapView.setBuiltInZoomControls(true);
 		mapOverlays = mapView.getOverlays();
-		
-		drawable = this.getResources().getDrawable(R.drawable.map_marker);
-		itemizedOverlay = new MemoMapOverlay(drawable);
+				
+		itemizedOverlay = new MemoMapOverlay(mapMarker);
 		
 		//Create a GeoPoint to signify the geolocation an overlay containing the geopoint
 		GeoPoint point = new GeoPoint((int)(latitude * 1E6), 
