@@ -12,20 +12,22 @@
 			<TextView android:text="Fullname" android:id="@+id/fullname"
 				android:layout_height="wrap_content" android:layout_gravity="left"
 				android:layout_width="fill_parent" android:textStyle="bold"
-				style="@style/default_style"></TextView>
+				style="@style/default_style"
+				android:textSize="@dimen/text_size_smallish"></TextView>
 			<TextView android:text="ContentTimestamp" android:id="@+id/content_timestamp"
 				android:layout_height="wrap_content" android:layout_gravity="right"
 				android:layout_width="fill_parent"
-				style="@style/default_style"></TextView>
+				style="@style/default_style" android:textSize="@dimen/text_size_small"></TextView>
 			<ImageView android:id="@+id/hasGeoLocation"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:src="@drawable/map" android:paddingLeft="2dip" android:visibility="visible"></ImageView>
+				android:src="@drawable/map" android:paddingLeft="2dip"
+				android:visibility="visible"></ImageView>
 		</TableRow>
 	</TableLayout>
 	<TextView android:id="@+id/content"
 		android:text="Content blah blah blah blah blah blah blah blah blah"
 		android:layout_width="fill_parent" android:gravity="center_vertical"
-		android:textSize="16dip" android:layout_height="wrap_content"
+		android:textSize="@dimen/text_size_medium" android:layout_height="wrap_content"
 		android:paddingLeft="5dip"
 		style="@style/default_style"></TextView>
 </LinearLayout>
