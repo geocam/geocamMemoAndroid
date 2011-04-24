@@ -9,8 +9,15 @@ import gov.nasa.arc.geocam.memo.service.SiteAuthCookieImplementation;
 import gov.nasa.arc.geocam.memo.service.SiteAuthInterface;
 import roboguice.config.AbstractAndroidModule;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GeoCamMemoModule.
+ */
 public class GeoCamMemoModule extends AbstractAndroidModule{
 
+	/* (non-Javadoc)
+	 * @see com.google.inject.AbstractModule#configure()
+	 */
 	@Override
 	protected void configure() {
 		requestStaticInjection(GeoCamMemoMessageArrayAdapter.class);

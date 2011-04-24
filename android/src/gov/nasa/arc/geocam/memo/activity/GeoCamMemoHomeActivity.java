@@ -20,13 +20,26 @@ import android.widget.ListView;
 
 import com.google.inject.Inject;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GeoCamMemoHomeActivity.
+ */
 public class GeoCamMemoHomeActivity extends RoboActivity {
 
+	/** The django memo. */
 	@Inject	DjangoMemoInterface djangoMemo;
+	
+	/** The memo list view. */
 	@InjectView(R.id.MemoListView)ListView memoListView;
+	
+	/** The adapter. */
 	@Inject	GeoCamMemoMessageArrayAdapter adapter;
 
-	/** Called when the activity is first created. */
+	/**
+	 * Called when the activity is first created.
+	 *
+	 * @param savedInstanceState the saved instance state
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,6 +79,11 @@ public class GeoCamMemoHomeActivity extends RoboActivity {
 
 	}
 	
+	/**
+	 * On create memo click.
+	 *
+	 * @param v the v
+	 */
 	public void onCreateMemoClick(View v){
 		UIUtils.createMemo(this);
 	}

@@ -27,28 +27,50 @@ import org.apache.http.protocol.HTTP;
 import roboguice.inject.InjectResource;
 import android.util.Log;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SiteAuthCookieImplementation.
+ */
 public class SiteAuthCookieImplementation implements SiteAuthInterface {
 
+	/** The server root url. */
 	@InjectResource(R.string.url_server_root) String serverRootUrl;
+	
+	/** The app path. */
 	@InjectResource(R.string.url_relative_app) String appPath;
 	
+	/** The http client. */
 	private DefaultHttpClient httpClient;
+	
+	/** The session id cookie. */
 	private Cookie sessionIdCookie;
 	
+	/** The username. */
 	private String username;
+	
+	/** The password. */
 	private String password;
 	
+	/* (non-Javadoc)
+	 * @see gov.nasa.arc.geocam.memo.service.SiteAuthInterface#setRoot(java.lang.String)
+	 */
 	@Override
 	public void setRoot(String siteRoot) {
 		serverRootUrl = siteRoot;	
 	}
 
+	/* (non-Javadoc)
+	 * @see gov.nasa.arc.geocam.memo.service.SiteAuthInterface#setAuth(java.lang.String, java.lang.String)
+	 */
 	@Override
 	public void setAuth(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
 
+	/* (non-Javadoc)
+	 * @see gov.nasa.arc.geocam.memo.service.SiteAuthInterface#post(java.lang.String, java.util.Map)
+	 */
 	@Override
 	public int post(String relativePath, Map<String, String> params)
 			throws AuthenticationFailedException, IOException,
@@ -83,6 +105,9 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		return r.getStatusLine().getStatusCode();
 	}
 
+	/* (non-Javadoc)
+	 * @see gov.nasa.arc.geocam.memo.service.SiteAuthInterface#get(java.lang.String, java.util.Map)
+	 */
 	@Override
 	public String get(String relativePath, Map<String, String> params)
 			throws AuthenticationFailedException, IOException,
@@ -114,6 +139,13 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		return sb.toString();
 	}
 	
+	/**
+	 * Ensure authenticated.
+	 *
+	 * @throws AuthenticationFailedException the authentication failed exception
+	 * @throws ClientProtocolException the client protocol exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	private void ensureAuthenticated() throws AuthenticationFailedException, ClientProtocolException, IOException
 	{
 		if(username == null || password == null)
@@ -131,6 +163,13 @@ public class SiteAuthCookieImplementation implements SiteAuthInterface {
 		}
 	}
 	
+	/**
+	 * Login.
+	 *
+	 * @throws ClientProtocolException the client protocol exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws AuthenticationFailedException the authentication failed exception
+	 */
 	private void login() throws ClientProtocolException, IOException, AuthenticationFailedException
 	{
 		httpClient = new DefaultHttpClient();

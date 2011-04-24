@@ -8,23 +8,40 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UIUtils.
+ */
 public class UIUtils {
    
 	/**
-     * Invoke "home" action, returning to {@link GeoCamMemoHomeActivity}.
-     */
+	 * Invoke "home" action, returning to {@link GeoCamMemoHomeActivity}.
+	 *
+	 * @param context the context
+	 */
     public static void goHome(Context context) {
         final Intent intent = new Intent(context, GeoCamMemoHomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
     }
     
+    /**
+     * Creates the memo.
+     *
+     * @param context the context
+     */
     public static void createMemo(Context context){
         final Intent intent = new Intent(context, GeoCamMemoCreateActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
     }
     
+    /**
+     * Show map view.
+     *
+     * @param context the context
+     * @param memoMessage the memo message
+     */
     public static void showMapView(Context context, GeoCamMemoMessage memoMessage) {
     	final Intent intent = new Intent(context, GeoCamMemoMapActivity.class);
     	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -35,6 +52,13 @@ public class UIUtils {
     }
     
     
+    /**
+     * Display exception.
+     *
+     * @param context the context
+     * @param e the e
+     * @param additionalMessage the additional message
+     */
     public static void displayException(Context context, Exception e, String additionalMessage)
     {
     	StringBuilder sb = new StringBuilder();

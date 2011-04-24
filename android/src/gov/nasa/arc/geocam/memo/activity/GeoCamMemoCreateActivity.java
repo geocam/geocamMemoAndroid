@@ -18,26 +18,49 @@ import android.widget.EditText;
 
 import com.google.inject.Inject;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GeoCamMemoCreateActivity.
+ */
 public class GeoCamMemoCreateActivity extends RoboActivity {
 
+	/** The new memo input. */
 	@InjectView(R.id.newMemoInput)
 	EditText newMemoInput;
+	
+	/** The app state. */
 	@Inject
 	GeoCamMemoRoboApplication appState;
+	
+	/** The django memo interface. */
 	@Inject
 	DjangoMemoInterface djangoMemoInterface;
 
-	/** Called when the activity is first created. */
+	/**
+	 * Called when the activity is first created.
+	 *
+	 * @param savedInstanceState the saved instance state
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_memo);
 	}
 
+	/**
+	 * On home click.
+	 *
+	 * @param v the v
+	 */
 	public void onHomeClick(View v) {
 		UIUtils.goHome(this);
 	}
 
+	/**
+	 * On send click.
+	 *
+	 * @param v the v
+	 */
 	public void onSendClick(View v) {
 		CharSequence text = newMemoInput.getText();
 

@@ -17,16 +17,36 @@ import android.content.Context;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DjangoMemoImplementation.
+ */
 public class DjangoMemoImplementation implements DjangoMemoInterface{
 
+	/** The json converter. */
 	@Inject DjangoMemoJsonConverterInterface jsonConverter;
+	
+	/** The server root url. */
 	@InjectResource(R.string.url_server_root) String serverRootUrl;
+	
+	/** The app path. */
 	@InjectResource(R.string.url_relative_app) String appPath;
+	
+	/** The memo messages json. */
 	@InjectResource(R.string.url_message_list) String memoMessagesJson;
+	
+	/** The create memo message json. */
 	@InjectResource(R.string.url_create_message) String createMemoMessageJson;
+	
+	/** The context provider. */
 	@Inject protected static Provider<Context> contextProvider;
+	
+	/** The site auth implementation. */
 	@Inject SiteAuthInterface siteAuthImplementation;
 	
+	/* (non-Javadoc)
+	 * @see gov.nasa.arc.geocam.memo.service.DjangoMemoInterface#getMemos()
+	 */
 	@Override
 	public List<GeoCamMemoMessage> getMemos() throws ClientProtocolException, AuthenticationFailedException, IOException {
 		//String jsonString = 
@@ -38,11 +58,17 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 		return jsonConverter.deserializeList(jsonString);
 	}
 
+	/* (non-Javadoc)
+	 * @see gov.nasa.arc.geocam.memo.service.DjangoMemoInterface#setAuth(java.lang.String, java.lang.String)
+	 */
 	@Override
 	public void setAuth(String username, String password) {
 		siteAuthImplementation.setAuth(username, password);		
 	}
 
+	/* (non-Javadoc)
+	 * @see gov.nasa.arc.geocam.memo.service.DjangoMemoInterface#createMemo(gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage)
+	 */
 	@Override
 	public void createMemo(GeoCamMemoMessage message) throws ClientProtocolException, AuthenticationFailedException, IOException {
 		HashMap<String,String>map = new HashMap<String,String>();

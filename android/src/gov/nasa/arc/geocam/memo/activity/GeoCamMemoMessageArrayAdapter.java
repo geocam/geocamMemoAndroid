@@ -18,15 +18,30 @@ import android.widget.TextView;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GeoCamMemoMessageArrayAdapter.
+ */
 public class GeoCamMemoMessageArrayAdapter extends ArrayAdapter<GeoCamMemoMessage> {
     
+	/** The context provider. */
 	@Inject protected static Provider<Context> contextProvider;
+	
+	/** The m inflater. */
 	@Inject LayoutInflater mInflater;
 	
+	/**
+	 * Instantiates a new geo cam memo message array adapter.
+	 */
 	public GeoCamMemoMessageArrayAdapter() {
 		super(contextProvider.get(), R.layout.list_item);
 	}
 	
+	/**
+	 * Sets the memos.
+	 *
+	 * @param memos the new memos
+	 */
 	public void setMemos(List<GeoCamMemoMessage> memos)
 	{
 		this.clear();
@@ -36,6 +51,9 @@ public class GeoCamMemoMessageArrayAdapter extends ArrayAdapter<GeoCamMemoMessag
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.ArrayAdapter#getView(int, android.view.View, android.view.ViewGroup)
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row;

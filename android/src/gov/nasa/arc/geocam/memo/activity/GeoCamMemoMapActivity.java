@@ -17,20 +17,45 @@ import roboguice.activity.RoboMapActivity;
 import roboguice.inject.InjectResource;
 import roboguice.inject.InjectView;;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GeoCamMemoMapActivity.
+ */
 public class GeoCamMemoMapActivity extends RoboMapActivity{
 
+	/** The map view. */
 	@InjectView(R.id.mapview)	MapView mapView;
+	
+	/** The text view. */
 	@InjectView(R.id.textview)  TextView textView;
+	
+	/** The map marker. */
 	@InjectResource(R.drawable.map_marker) Drawable mapMarker;
+	
+	/** The latitude str. */
 	@InjectResource(R.string.latitude) String latitudeStr;
+	
+	/** The longitude str. */
 	@InjectResource(R.string.longitude) String longitudeStr;
+	
+	/** The accuracy str. */
 	@InjectResource(R.string.accuracy) String accuracyStr;
 
+	/** The map controller. */
 	MapController mapController;
+	
+	/** The map overlays. */
 	List<Overlay> mapOverlays;
+	
+	/** The drawable. */
 	Drawable drawable;
+	
+	/** The itemized overlay. */
 	MemoMapOverlay itemizedOverlay;
 
+	/* (non-Javadoc)
+	 * @see roboguice.activity.RoboMapActivity#onCreate(android.os.Bundle)
+	 */
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map_view);
@@ -66,10 +91,18 @@ public class GeoCamMemoMapActivity extends RoboMapActivity{
 		mapController.setZoom(16);
 	}
 	
+	/**
+	 * On home click.
+	 *
+	 * @param v the v
+	 */
 	public void onHomeClick(View v) {
 		UIUtils.goHome(this);
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.google.android.maps.MapActivity#isRouteDisplayed()
+	 */
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;

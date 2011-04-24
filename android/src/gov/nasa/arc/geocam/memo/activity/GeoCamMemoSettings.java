@@ -7,9 +7,18 @@ import android.os.Bundle;
 
 import com.google.inject.Inject;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GeoCamMemoSettings.
+ */
 public class GeoCamMemoSettings extends RoboPreferenceActivity {
+    
+    /** The site auth interface. */
     @Inject SiteAuthInterface siteAuthInterface;
 	
+	/* (non-Javadoc)
+	 * @see roboguice.activity.RoboPreferenceActivity#onCreate(android.os.Bundle)
+	 */
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

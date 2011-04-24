@@ -13,11 +13,21 @@ import android.preference.PreferenceManager;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GeoCamMemoRoboApplication.
+ */
 public class GeoCamMemoRoboApplication extends RoboApplication {
+	
+	/** The listener. */
 	private GeoLocationListener listener;
 	
+	/** The module. */
 	private Module module = new GeoCamMemoModule();
     
+	/* (non-Javadoc)
+	 * @see android.app.Application#onCreate()
+	 */
 	@Override
 	public void onCreate() {
 		listener = new GeoLocationListener();
@@ -31,20 +41,36 @@ public class GeoCamMemoRoboApplication extends RoboApplication {
         super.onCreate();
 	}
 	
+	/* (non-Javadoc)
+	 * @see roboguice.application.RoboApplication#addApplicationModules(java.util.List)
+	 */
 	protected void addApplicationModules(List<Module> modules) {
         modules.add(this.module);
     }
     
+    /**
+     * Sets the module.
+     *
+     * @param module the new module
+     */
     public void setModule(Module module) {
         this.module = module;
         
     }
     
+    /**
+     * Gets the location.
+     *
+     * @return the location
+     */
     public Location getLocation() {
     	return listener.getLocation();
     }
     
     
+    /**
+     * Sets the default settings.
+     */
     private void setDefaultSettings() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
