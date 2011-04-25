@@ -80,7 +80,7 @@ public class GeoCamMemoHomeActivity extends RoboActivity {
 	}
 	
 	/**
-	 * On create memo click.
+	 * On create memo click, start the {@link GeoCamMemoCreateActivity}
 	 *
 	 * @param v the v
 	 */

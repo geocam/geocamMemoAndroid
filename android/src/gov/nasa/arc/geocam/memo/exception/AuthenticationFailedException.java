@@ -1,8 +1,8 @@
 package gov.nasa.arc.geocam.memo.exception;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class AuthenticationFailedException.
+ * The Class AuthenticationFailedException which is thrown when we can't log 
+ * into the server because of a bad username and password combination.
  */
 public class AuthenticationFailedException extends Exception {
 	

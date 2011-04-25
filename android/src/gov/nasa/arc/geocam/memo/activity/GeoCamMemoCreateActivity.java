@@ -20,7 +20,8 @@ import com.google.inject.Inject;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class GeoCamMemoCreateActivity.
+ * The Class GeoCamMemoCreateActivity.  This activity gives the 
+ * user the opportunity to add a new memo
  */
 public class GeoCamMemoCreateActivity extends RoboActivity {
 
@@ -48,18 +49,20 @@ public class GeoCamMemoCreateActivity extends RoboActivity {
 	}
 
 	/**
-	 * On home click.
+	 * On home click, restart the {@link GeoCamMemoHomeActivity}.
 	 *
-	 * @param v the v
+	 * @param v the view
 	 */
 	public void onHomeClick(View v) {
 		UIUtils.goHome(this);
 	}
 
 	/**
-	 * On send click.
+	 * On send click, create a new {@link GeoCamMemoMessage} using the 
+	 * text and time stamp from the {@link GeoCamMemoCreateActivity}.  Populate
+	 * the location if available.  
 	 *
-	 * @param v the v
+	 * @param v the view
 	 */
 	public void onSendClick(View v) {
 		CharSequence text = newMemoInput.getText();

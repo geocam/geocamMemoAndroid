@@ -94,7 +94,7 @@ public class GeoCamMemoMapActivity extends RoboMapActivity{
 	/**
 	 * On home click.
 	 *
-	 * @param v the v
+	 * @param v the view
 	 */
 	public void onHomeClick(View v) {
 		UIUtils.goHome(this);
