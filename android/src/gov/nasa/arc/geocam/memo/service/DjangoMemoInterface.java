@@ -10,12 +10,13 @@ import org.apache.http.client.ClientProtocolException;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface DjangoMemoInterface.
+ * The Interface DjangoMemoInterface.  This provides access to the
+ * methods that manipulate the memos from the server.
  */
 public interface DjangoMemoInterface {
 	
 	/**
-	 * Gets the memos.
+	 * Gets the available memos.
 	 *
 	 * @return the memos
 	 * @throws ClientProtocolException the client protocol exception

@@ -6,12 +6,14 @@ import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Interface DjangoMemoJsonConverterInterface.
+ * The Interface DjangoMemoJsonConverterInterface.  This class provides 
+ * access to the methods that manipulate the Json string
  */
 public interface DjangoMemoJsonConverterInterface {
 	
 	/**
-	 * Deserialize list.
+	 * This method creates a Gson object that uses Gson
+	 * standards to pull the data from the list 
 	 *
 	 * @param jsonString the json string
 	 * @return the list
@@ -19,7 +21,8 @@ public interface DjangoMemoJsonConverterInterface {
 	List<GeoCamMemoMessage> deserializeList(String jsonString);
 	
 	/**
-	 * Deserialize.
+	 * This method creates a Gson object that uses Gson standards
+	 * to pull the data from a Json string
 	 *
 	 * @param jsonString the json string
 	 * @return the geo cam memo message
@@ -27,7 +30,8 @@ public interface DjangoMemoJsonConverterInterface {
 	GeoCamMemoMessage deserialize(String jsonString);
 	
 	/**
-	 * Serialize.
+	 * This method serializes the passed in object and 
+	 * converts it to a Json string.
 	 *
 	 * @param message the message
 	 * @return the string

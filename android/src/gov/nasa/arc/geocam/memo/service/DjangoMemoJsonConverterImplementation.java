@@ -11,7 +11,9 @@ import com.google.gson.reflect.TypeToken;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class DjangoMemoJsonConverterImplementation.
+ * The Class DjangoMemoJsonConverterImplementation.  This class 
+ * provides the methods that manipulate the data into and from
+ * the Json string
  */
 public class DjangoMemoJsonConverterImplementation
     implements DjangoMemoJsonConverterInterface {

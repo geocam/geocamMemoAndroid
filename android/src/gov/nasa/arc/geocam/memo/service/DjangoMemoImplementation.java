@@ -29,13 +29,13 @@ public class DjangoMemoImplementation implements DjangoMemoInterface{
 	/** The server root url. */
 	@InjectResource(R.string.url_server_root) String serverRootUrl;
 	
-	/** The app path. */
+	/** The path for the application server. */
 	@InjectResource(R.string.url_relative_app) String appPath;
 	
-	/** The memo messages json. */
+	/** The path for the Memo homepage. */
 	@InjectResource(R.string.url_message_list) String memoMessagesJson;
 	
-	/** The create memo message json. */
+	/** The path for the create memo page. */
 	@InjectResource(R.string.url_create_message) String createMemoMessageJson;
 	
 	/** The context provider. */
