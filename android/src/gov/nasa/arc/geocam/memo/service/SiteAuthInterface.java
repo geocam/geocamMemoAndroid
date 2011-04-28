@@ -7,21 +7,20 @@ import java.util.Map;
 
 import org.apache.http.client.ClientProtocolException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface SiteAuthInterface.
  */
 public interface SiteAuthInterface {
     
     /**
-     * Sets the root.
+     * Sets the root path of the django server
      *
      * @param siteRoot the new root
      */
     public void setRoot(String siteRoot);
     
     /**
-     * Sets the auth.
+     * Sets the authentication credentials to login with.
      *
      * @param username the username
      * @param password the password
@@ -29,11 +28,11 @@ public interface SiteAuthInterface {
     public void setAuth(String username, String password);
     
     /**
-     * Post.
+     * Submit an HTTP Post to the server
      *
-     * @param relativePath the relative path
-     * @param params the params
-     * @return the int
+     * @param relativePath the relative path of the post
+     * @param params A string to string map of the itemized parameters to post
+     * @return The server response code
      * @throws AuthenticationFailedException the authentication failed exception
      * @throws IOException Signals that an I/O exception has occurred.
      * @throws ClientProtocolException the client protocol exception
@@ -42,11 +41,11 @@ public interface SiteAuthInterface {
             throws AuthenticationFailedException, IOException, ClientProtocolException;
     
     /**
-     * Gets the.
+     * submits an HTTP get to the django server
      *
-     * @param relativePath the relative path
-     * @param params the params
-     * @return the string
+     * @param relativePath the relative path on the django server
+     * @param params A string to string map of the itemized parameters to post
+     * @return the contents returned by the get
      * @throws AuthenticationFailedException the authentication failed exception
      * @throws IOException Signals that an I/O exception has occurred.
      * @throws ClientProtocolException the client protocol exception

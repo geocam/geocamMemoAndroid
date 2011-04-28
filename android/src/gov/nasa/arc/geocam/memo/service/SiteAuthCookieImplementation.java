@@ -27,7 +27,6 @@ import org.apache.http.protocol.HTTP;
 import roboguice.inject.InjectResource;
 import android.util.Log;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SiteAuthCookieImplementation.
  */

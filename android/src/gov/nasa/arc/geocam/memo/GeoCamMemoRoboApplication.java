@@ -13,7 +13,6 @@ import android.preference.PreferenceManager;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GeoCamMemoRoboApplication.
  */

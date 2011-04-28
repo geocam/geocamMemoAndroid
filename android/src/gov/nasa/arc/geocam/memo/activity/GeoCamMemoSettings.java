@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.google.inject.Inject;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GeoCamMemoSettings.
  */

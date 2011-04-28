@@ -8,9 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class UIUtils.
+ * The UIUtils helper class. Provides static access functions that create activity intents.
  */
 public class UIUtils {
    
@@ -53,7 +53,7 @@ public class UIUtils {
     
     
     /**
-     * Display exception.
+     * Display an exception to the user.
      *
      * @param context the context
      * @param e the e
