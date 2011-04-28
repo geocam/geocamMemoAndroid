@@ -17,9 +17,8 @@ import android.content.Context;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class DjangoMemoImplementation.
+ * Implementation of the {@link DjangoMemoInterface} meant to interface with the Django server.
  */
 public class DjangoMemoImplementation implements DjangoMemoInterface{
 

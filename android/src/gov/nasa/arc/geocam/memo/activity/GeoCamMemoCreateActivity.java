@@ -18,7 +18,6 @@ import android.widget.EditText;
 
 import com.google.inject.Inject;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GeoCamMemoCreateActivity.  This activity gives the 
  * user the opportunity to add a new memo

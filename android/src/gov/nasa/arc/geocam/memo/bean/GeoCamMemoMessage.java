@@ -4,9 +4,9 @@ package gov.nasa.arc.geocam.memo.bean;
 
 import java.util.Date;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class GeoCamMemoMessage.
+ * An android representation of a GeoCam Memo Message.
  */
 public class GeoCamMemoMessage {
 
@@ -16,10 +16,10 @@ public class GeoCamMemoMessage {
 	/** The author id. */
 	private Integer  	authorId;
 	
-	/** The author username. */
+	/** The author user name. */
 	private String 		authorUsername;
 	
-	/** The author fullname. */
+	/** The author full name. */
 	private String		authorFullname;
 	
 	/** The content. */

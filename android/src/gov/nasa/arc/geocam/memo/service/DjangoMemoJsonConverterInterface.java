@@ -4,7 +4,6 @@ import gov.nasa.arc.geocam.memo.bean.GeoCamMemoMessage;
 
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface DjangoMemoJsonConverterInterface.  This class provides 
  * access to the methods that manipulate the Json string

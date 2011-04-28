@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface DjangoMemoInterface.  This provides access to the
  * methods that manipulate the memos from the server.
@@ -16,7 +15,7 @@ import org.apache.http.client.ClientProtocolException;
 public interface DjangoMemoInterface {
 	
 	/**
-	 * Gets the available memos.
+	 * Gets available memos from the server.
 	 *
 	 * @return the memos
 	 * @throws ClientProtocolException the client protocol exception
@@ -27,7 +26,7 @@ public interface DjangoMemoInterface {
 	 throws ClientProtocolException, AuthenticationFailedException, IOException;
 	
 	/**
-	 * Creates the memo.
+	 * Creates a memo on the django server.
 	 *
 	 * @param message the message
 	 * @throws ClientProtocolException the client protocol exception
@@ -38,7 +37,7 @@ public interface DjangoMemoInterface {
 	 throws ClientProtocolException, AuthenticationFailedException, IOException;
 	
 	/**
-	 * Sets the auth.
+	 * Sets the authorization credentials.
 	 *
 	 * @param username the username
 	 * @param password the password

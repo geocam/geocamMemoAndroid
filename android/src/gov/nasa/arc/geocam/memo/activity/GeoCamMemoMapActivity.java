@@ -17,7 +17,6 @@ import roboguice.activity.RoboMapActivity;
 import roboguice.inject.InjectResource;
 import roboguice.inject.InjectView;;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GeoCamMemoMapActivity.
  */

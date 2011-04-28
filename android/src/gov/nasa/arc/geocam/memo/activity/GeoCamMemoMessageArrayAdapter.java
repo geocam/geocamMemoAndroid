@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class GeoCamMemoMessageArrayAdapter.
  */
