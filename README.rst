@@ -70,9 +70,8 @@ The GeoCamMemoForAndroid project uses Robolectric in order to remove reliance on
 
 Future runs can be initiated by right clicking on the project and selecting `Run As > GeocamMemoForAndroidTest` among other methods. See eclipse documentation for additional shortcuts and methods of initiating junit tests.
 
-
-| __BEGIN_LICENSE__
-| Copyright (C) 2011 United States Government as represented by
-| the Administrator of the National Aeronautics and Space Administration.
-| All Rights Reserved.
-| __END_LICENSE__
+.. o  __BEGIN_LICENSE__
+.. o  Copyright (C) 2008-2010 United States Government as represented by
+.. o  the Administrator of the National Aeronautics and Space Administration.
+.. o  All Rights Reserved.
+.. o  __END_LICENSE__
